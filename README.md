@@ -5,38 +5,33 @@ El objetivo del juego/aplicación es ...
 La descripción del juego/aplicación es ...
 
 ### Clases principales y sus características
-1. Clase 1
-* caracteristica1
-* caracteristica2
-* caracteristica3
+1. Juego
+* Nos permite seleccionar la dificulad del juego.
+* Continuar la partida del juego.
+* Seleccionar un elemento del menu,
 
-2. Clase 2
-* caracteristica1
-* caracteristica2
-* caracteristica3
+2. Mundo
+* Nos muestra el escenario del juego desde una vista aerea.
+* Moveremos al personaje desde aqui.
 
-3. Clase 3
-* caracteristica1
-* caracteristica2
-* caracteristica3
+3. Combate
+* Sucede el evento de una pelea contra un enemigo.
+* Se manejara por turnos.
+* La batalla acaba cuando el primero pierda.
 
-4. Clase 4
-* caracteristica1
-* caracteristica2
-* caracteristica3
+4. Jugador
+* Será controlado por el usuario.
+* Nos mostrara dos aspectos fisicos desde la vista del mundo y la del combate.
+* Contara con diferentes antributos para sus ataques.
 
-5. Clase 5
-* caracteristica1
-* caracteristica2
-* caracteristica3
 
 ### Diagrama de clases
-![Diagrama de clases](url-del-diagrama.png)
+![Diagrama de clases](https://github.com/acominf/CygnusX-1/blob/master/Imagenes/Diagrama%20de%20clases.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:
-- Nombre completo del autor 1 (@nombreUsuarioGitHub)
-- Nombre completo del autor 2 (@nombreUsuarioGitHub)
+- Gonzalez Patiño Oscar Armando (@Morcado)
+- Hernandez Alonso Hector Andrey (@AndreyAlonso)
 
 ### Materia(s)
 - Programación Orientada a Objetos

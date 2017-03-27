@@ -1,32 +1,48 @@
-### Objetivo
-El objetivo del proyecto es ...
-Aplicar todos los conocimientos aprendidos de la materia asi como lograr la creacion de un gran juego aprovechando los grandes recursos que tiene Java en la Programaci�n Orientada a Objetos.
+### Objetivo del juego o aplicación
+El objetivo del juego o aplicación es ...
 
-### Descripción
-La descripción del proyecto es ...
-Es un juego tipo RPG (Role Playing Game), donde el soldado de clave X-1 continua su aventura despues de haber derrotado a su clon creado por la raza enemiga. 
- 
+### Descripción del juego o aplicación
+La descripción del juego o aplicación es ...
 
+### Clases principales y sus características
+1. Clase 1
+* caracteristica1
+* caracteristica2
+* caracteristica3
 
+2. Clase 2
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+3. Clase 3
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+4. Clase 4
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+5. Clase 5
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+### Diagrama de clases
+![Diagrama de clases](url-del-diagrama.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:
-- Gonzalez Patiño Oscar Armando
-- Hernández Alonso Hectór Andrey
+- Nombre completo del autor 1 (@nombreUsuarioGitHub)
+- Nombre completo del autor 2 (@nombreUsuarioGitHub)
 
-### Historias de usuario
-Las historias de usuario son:
+### Materia(s)
+- Programación Orientada a Objetos
 
-1. Como jugador quiero poder contar con una cantidad variada de poderes de ataque.
-2. Como jugador quiero contar en el mundo abierto con  vehículos que hagan mas rápido el viaje por el mundo.
-3. COMO jugador QUIERO moverme a traves del mundo PARA llegar al final.
-4. COMO jugador QUIERO usar las teclas de dirección PARA moverme a traves del mundo.
-5. Como jugador quiero que el juego cuente con música en el ambiente y con efectos de sonido.
-6. COMO jugador QUIERO elegir con el mouse una acción diferente mientras esté en una batalla.
-7. Como jugador quiero poder contar con un panel que sea facil y rapido de acceder que me muestre el estado del juego,  así como la vida, items, etc.
-8. Como jugador quiero que se vea un cambio visual al personaje según vaya subiendo de nivel.
-9. COMO jugador QUIERO subir de nivel cuando gane la batalla con algun monstruo.
-10. Como jugador quiero que los enemigos no sean repetitivos.
+### Semestre
+- 2016-2017/II
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).

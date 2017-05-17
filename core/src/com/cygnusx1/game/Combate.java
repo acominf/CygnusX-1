@@ -11,6 +11,6 @@ public class Combate{
     //private Sprite []botones;
 
     public Combate(){
-        //Sprite = new Sprite[10];
+        //botones = new Sprite[10];
     }
 }

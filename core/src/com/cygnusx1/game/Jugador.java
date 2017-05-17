@@ -1,4 +1,3 @@
-
 package com.cygnusx1.game;
 
 import com.badlogic.gdx.Gdx;
@@ -23,21 +22,28 @@ public class Jugador {
         this.y = y;
         this.tam = 5;
 
-        sprite = new Sprite( new Texture(Gdx.files.internal("badlogic.jpg")),64,64);
+        sprite = new Sprite( new Texture(Gdx.files.internal("abajo.png")));
+
     }
 
+
     public  void movimiento(final SpriteBatch batch){
+
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             this.x+=this.tam;
-            this.sprite = new Sprite ( new Texture(Gdx.files.internal("x-1.png")));
+            this.sprite = new Sprite ( new Texture(Gdx.files.internal("derecha.png")));
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && this.x > 0){
+        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            this.sprite = new Sprite ( new Texture(Gdx.files.internal("izquierda.png")));
+
             this.x-=this.tam;
         }
         else if(Gdx.input.isKeyPressed(Input.Keys.UP)){
+            this.sprite = new Sprite ( new Texture(Gdx.files.internal("arriba.png")));
             this.y+=this.tam;
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN) && this.y > 0){
+        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            this.sprite = new Sprite ( new Texture(Gdx.files.internal("abajo.png")));
             this.y-=this.tam;
         }
         batch.draw(sprite, x, y);

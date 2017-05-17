@@ -17,4 +17,5 @@ public class Escenario {
         sprite = new Sprite(new Texture(Gdx.files.internal("tierra.png")));
     }
 
+
 }

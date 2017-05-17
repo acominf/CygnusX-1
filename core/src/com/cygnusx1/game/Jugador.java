@@ -21,7 +21,7 @@ public class Jugador {
     public Jugador(int x, int y){
         this.x = x;
         this.y = y;
-        this.tam = 2;
+        this.tam = 5;
 
         sprite = new Sprite( new Texture(Gdx.files.internal("badlogic.jpg")),64,64);
     }
@@ -31,13 +31,13 @@ public class Jugador {
             this.x+=this.tam;
             this.sprite = new Sprite ( new Texture(Gdx.files.internal("x-1.png")));
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && this.x > 0){
             this.x-=this.tam;
         }
         else if(Gdx.input.isKeyPressed(Input.Keys.UP)){
             this.y+=this.tam;
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN) && this.y > 0){
             this.y-=this.tam;
         }
         batch.draw(sprite, x, y);

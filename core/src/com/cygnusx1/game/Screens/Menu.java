@@ -1,26 +1,18 @@
 package com.cygnusx1.game.Screens;
 
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Created by Oscar Patiño on 16/05/2017.
+ * Created by Oscar Patiño on 19/05/2017.
  */
-public class Combate implements Screen{
-    private int turno;
-    private SpriteBatch sprite;
-    public Combate(){
-        sprite = new SpriteBatch();
-        //botones = new Sprite[10];
-    }
-
+public class Menu implements Screen{
     @Override
     public void show(){
-
     }
 
     @Override
     public void render(float delta){
+
     }
 
     @Override

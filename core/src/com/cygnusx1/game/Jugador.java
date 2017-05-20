@@ -50,9 +50,11 @@ public class Jugador{
             this.sprite = new Sprite ( new Texture(Gdx.files.internal("abajo.png")));
             this.y-=this.tam;
         }
+        /*
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             juego.setScreen(new Portada(juego));
         }
+        */
         batch.draw(sprite, x, y);
     }
 }

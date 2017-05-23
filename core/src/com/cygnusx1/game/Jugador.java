@@ -17,44 +17,38 @@ public class Jugador{
     private Sprite sprite;
     private int x;
     private int y;
+    private int vidas; // vidas
     private float tam;
     private CygnusX1 juego;
+
 
     public Jugador(int x, int y, CygnusX1 game){
         juego = game;
         this.x = x;
         this.y = y;
-        this.tam = 5;
-
-        sprite = new Sprite( new Texture(Gdx.files.internal("abajo.png")));
-
+        this.tam = 3;
+        sprite = new Sprite(new Texture(Gdx.files.internal("abajo.png")));
     }
-
 
     public void movimiento(final SpriteBatch batch){
 
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            this.x+=this.tam;
-            this.sprite = new Sprite ( new Texture(Gdx.files.internal("derecha.png")));
+            this.x += this.tam;
+            this.sprite = new Sprite (new Texture(Gdx.files.internal("derecha.png")));
         }
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            this.sprite = new Sprite ( new Texture(Gdx.files.internal("izquierda.png")));
-
-            this.x-=this.tam;
+            this.sprite = new Sprite (new Texture(Gdx.files.internal("izquierda.png")));
+            this.x -= this.tam;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-            this.sprite = new Sprite ( new Texture(Gdx.files.internal("arriba.png")));
-            this.y+=this.tam;
+            this.sprite = new Sprite (new Texture(Gdx.files.internal("arriba.png")));
+            this.y += this.tam;
         }
+
         if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-            this.sprite = new Sprite ( new Texture(Gdx.files.internal("abajo.png")));
+            this.sprite = new Sprite (new Texture(Gdx.files.internal("abajo.png")));
             this.y-=this.tam;
         }
-        /*
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-            juego.setScreen(new Portada(juego));
-        }
-        */
         batch.draw(sprite, x, y);
     }
 }

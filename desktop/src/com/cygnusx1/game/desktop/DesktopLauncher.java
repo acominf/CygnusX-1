@@ -9,7 +9,7 @@ public class DesktopLauncher {
         System.setProperty("user.name","Oscar");
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "Cygnus X-1";
-        config.width = 800;
+        config.width = 1024;
         config.height = 600;
 
         new LwjglApplication(new CygnusX1(), config);

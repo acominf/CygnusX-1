@@ -24,7 +24,7 @@ public class Portada implements Screen{
     public Portada(CygnusX1 juego){
         this.juego = juego;
         camera = new OrthographicCamera(); // Canvas
-        camera.setToOrtho(false, 800, 600); // Dimensiones de la pantalla
+        //camera.setToOrtho(false, 800, 600); // Dimensiones de la pantalla
         batch = new SpriteBatch();
         portada = new Sprite(new Texture(Gdx.files.internal("Portada2.png")));
     }

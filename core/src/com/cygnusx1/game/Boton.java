@@ -22,7 +22,6 @@ public class Boton extends Game{
     private TextButton button;
     TextButton.TextButtonStyle textButtonStyle;
     BitmapFont font;
-    TextureAtlas buttonAtlas;
 
     @Override
     public void create(){

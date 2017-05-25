@@ -12,7 +12,7 @@ import com.cygnusx1.game.Boton;
 import com.cygnusx1.game.CygnusX1;
 
 /**
- * Created by andrey on 17/05/17.
+ * Created by Oscar y adnrey on 17/05/17.
  */
 public class Portada implements Screen{
     private CygnusX1 juego;
@@ -23,7 +23,7 @@ public class Portada implements Screen{
 
     public Portada(CygnusX1 juego){
         this.juego = juego;
-        camera = new OrthographicCamera(); // Canvas
+        //camera = new OrthographicCamera(); // Canvas
         //camera.setToOrtho(false, 800, 600); // Dimensiones de la pantalla
         batch = new SpriteBatch();
         portada = new Sprite(new Texture(Gdx.files.internal("Portada2.png")));
@@ -38,16 +38,14 @@ public class Portada implements Screen{
     public void render(float delta){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         batch.begin();
-
-
         portada.draw(batch);
-
         batch.end();
 
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
             this.dispose();
-            juego.setScreen(new Escenario(juego));
+            juego.setScreen(new Menu(juego));
         }
     }
 
@@ -73,6 +71,6 @@ public class Portada implements Screen{
 
     @Override
     public void dispose() {
-
+        
     }
 }

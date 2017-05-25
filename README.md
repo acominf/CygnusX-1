@@ -34,7 +34,7 @@ Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez má
 
 
 ### Diagrama de clases
-![Diagrama de clases](https://github.com/acominf/CygnusX-1/blob/master/Imagenes/Diagrama%20de%20clases.png)
+![Diagrama de clases](https://github.com/acominf/CygnusX-1/blob/master/Imagenes/DiagramaClases.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:

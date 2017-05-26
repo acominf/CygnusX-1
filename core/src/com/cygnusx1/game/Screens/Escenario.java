@@ -1,13 +1,16 @@
 package com.cygnusx1.game.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.cygnusx1.game.CygnusX1;
 import com.cygnusx1.game.Jugador;
 
@@ -16,6 +19,7 @@ import com.cygnusx1.game.Jugador;
  */
 
 public class Escenario implements Screen{
+    private Stage stage;
     private CygnusX1 juego;
     private SpriteBatch batch;
     private OrthographicCamera camera;
@@ -24,17 +28,17 @@ public class Escenario implements Screen{
     private Timer t1;
     private int x;
 
-    public Escenario(CygnusX1 juego){
+    public Escenario(CygnusX1 j){
         x = 1;
-        this.juego = juego;
+        juego = j;
+        stage = new Stage(new ScreenViewport());
         jug = new Jugador(0, 0, juego);
         mons1 = new Sprite(new Texture(Gdx.files.internal("botiquin.png")));
         batch = new SpriteBatch(); // Objetos a Dibujar
 
-        camera = new OrthographicCamera(); // Canvas
+        camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 600); // Dimensiones de la pantalla
         camera.update();
-        //sprite = new Sprite(new Texture(Gdx.files.internal("tierra.png")));
     }
 
     @Override
@@ -42,16 +46,15 @@ public class Escenario implements Screen{
 
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        stage.act();
 
         camera.update();
         //batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        if(x == 1){
+
             batch.draw(mons1, 100, 100);
             batch.draw(mons1, 200, 200);
-            x = 3;
-        }
+
         jug.movimiento(batch);
 
         batch.end();
@@ -60,7 +63,7 @@ public class Escenario implements Screen{
 
     @Override
     public void show(){
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override

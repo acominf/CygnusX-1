@@ -1,16 +1,19 @@
 package com.cygnusx1.game.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
+
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+//import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.cygnusx1.game.CygnusX1;
 import com.cygnusx1.game.Jugador;
 
@@ -19,51 +22,43 @@ import com.cygnusx1.game.Jugador;
  */
 
 public class Escenario implements Screen{
-    private Stage stage;
+    //private Stage stage;
     private CygnusX1 juego;
-    private SpriteBatch batch;
-    private OrthographicCamera camera;
     private Jugador jug;
     private Sprite mons1;
-    private Timer t1;
-    private int x;
+
+    private TiledMap map;
+    private OrthogonalTiledMapRenderer mapRen;
+    private OrthographicCamera camera;
 
     public Escenario(CygnusX1 j){
-        x = 1;
         juego = j;
-        stage = new Stage(new ScreenViewport());
-        jug = new Jugador(0, 0, juego);
+
+        //stage = new Stage(new ScreenViewport());
+        //stage.addActor(jug);
+
         mons1 = new Sprite(new Texture(Gdx.files.internal("botiquin.png")));
-        batch = new SpriteBatch(); // Objetos a Dibujar
+        //SpriteBatch batch = new SpriteBatch();
 
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 600); // Dimensiones de la pantalla
-        camera.update();
     }
 
     @Override
-    public void render(float delta) {
-
+    public void render(float delta){
         Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act();
-
+        //stage.act();
         camera.update();
-        //batch.setProjectionMatrix(camera.combined);
-        batch.begin();
+        mapRen.setView(camera);
 
-            batch.draw(mons1, 100, 100);
-            batch.draw(mons1, 200, 200);
+        mapRen.render(new int[] {0});
+        mapRen.getBatch().begin();
 
-        jug.movimiento(batch);
+        jug.draw((SpriteBatch)mapRen.getBatch());
 
-        batch.end();
+        mapRen.getBatch().end();
+        mapRen.render(new int[] {1});
 
-    }
-
-    @Override
-    public void show(){
-        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -87,7 +82,19 @@ public class Escenario implements Screen{
     }
 
     @Override
-    public void dispose() {
+    public void show(){
+        map = new TmxMapLoader().load("map.tmx");
+        jug = new Jugador(0, 0, juego, (TiledMapTileLayer)map.getLayers().get(0));
+        mapRen = new OrthogonalTiledMapRenderer(map);
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()); // AREA DQUE CUBRE LA CANAARA
 
+        Gdx.input.setInputProcessor(jug);
+    }
+
+    @Override
+    public void dispose() {
+        mapRen.dispose();
+        map.dispose();
     }
 }

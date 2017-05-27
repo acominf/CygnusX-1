@@ -83,8 +83,8 @@ public class Escenario implements Screen{
 
     @Override
     public void show(){
-        map = new TmxMapLoader().load("map.tmx");
-        jug = new Jugador(0, 0, juego, (TiledMapTileLayer)map.getLayers().get(0));
+        map = new TmxMapLoader().load("map1.tmx");
+        jug = new Jugador(0, 0, juego, (TiledMapTileLayer)(map.getLayers().get(0)));
         mapRen = new OrthogonalTiledMapRenderer(map);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()); // AREA DQUE CUBRE LA CANAARA

@@ -26,40 +26,20 @@ public class Jugador extends Actor implements InputProcessor{
 
 
     public Jugador(int x, int y, CygnusX1 game, TiledMapTileLayer m){
-        mapa = m;
+        this.mapa = m;
         juego = game;
         this.x = x;
         this.y = y;
+
         this.tam = 3;
         sprite = new Sprite(new Texture(Gdx.files.internal("abajo.png")));
     }
 
-    /*
-    public void movimiento(final SpriteBatch batch){
+    public void draw(final SpriteBatch batch){  //metodo
+        float oldX = getX(), oldY = getY(), tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
+        boolean colisionUp = false, colisionDown = false, colisionRight = false, colisionLeft = false;
 
-        boolean colisionX = false, colisionY = false;
-        float oldX = this.x, oldY = this.y;
-        /*
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            //this.x += this.tam;
-            sprite.translateX(10f);
-            //this.sprite = new Sprite (new Texture(Gdx.files.internal("derecha.png")));
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            sprite.translateX(-10.0f);
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-            sprite.translateX(10.0f);
-        }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-            sprite.translateX(-10.0f);
-        }
-        batch.draw(sprite, x, y);
-    }
-    */
-
-    public void draw(final SpriteBatch batch){
         if(keyDown && sprite.getY() > 0){ //abajo
             sprite.translateY(-5f);
         }
@@ -71,6 +51,14 @@ public class Jugador extends Actor implements InputProcessor{
         }
         if(keyRight && sprite.getX() < Gdx.graphics.getWidth()){ // izquierda
             sprite.translateX(5f);
+        }
+
+        System.out.println((int)((sprite.getX()/tileWidth)+1) + ", " + (int)((99-(sprite.getY()/tileHeight))+1));
+
+        //colisionDown = mapa.getCell((int)(sprite.getX()/tileWidth), (int)((sprite.getY()-sprite.getHeight())/tileHeight)).getTile().getProperties().containsKey("Pared");
+        //System.out.println(mapa.getCell((int)(sprite.getX()/tileHeight), (int)((sprite.getY()-sprite.getHeight())/tileHeight)).getTile().getId());        ;
+        if(colisionDown){
+            sprite.translateY(5f);
         }
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }

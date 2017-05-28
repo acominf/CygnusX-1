@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="33">
- <tileset firstgid="1" name="Hola" tilewidth="32" tileheight="32" tilecount="3072">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="33">
+ <tileset firstgid="1" name="Hola" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
   <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
   <tile id="839">
    <properties>
@@ -12,47 +12,18 @@
     <property name="Pared" value="Pared"/>
    </properties>
   </tile>
+  <tile id="1027">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
  </tileset>
- <objectgroup name="Pared" opacity="0.94">
-  <object id="1" x="163" y="2946" width="253" height="60"/>
-  <object id="2" x="463" y="2949"/>
-  <object id="3" x="477" y="2976" height="19"/>
-  <object id="4" x="479" y="2972" height="37"/>
-  <object id="5" x="411" y="2982" width="31" height="3"/>
-  <object id="6" x="417" y="2973" width="63" height="34"/>
-  <object id="7" x="162.694" y="2814.39" width="223" height="94" rotation="0.83193"/>
-  <object id="8" x="292" y="3042" width="23" height="27"/>
-  <object id="9" x="264" y="3087" width="7"/>
-  <object id="10" x="282" y="3053"/>
-  <object id="11" x="249" y="3071"/>
-  <object id="12" x="247" y="3085" width="21" height="27"/>
-  <object id="13" x="285" y="3123"/>
-  <object id="14" x="326" y="3125"/>
-  <object id="15" x="353" y="3140" height="4"/>
-  <object id="16" x="366" y="3127" height="2"/>
-  <object id="17" x="138" y="3151"/>
-  <object id="18" x="102" y="3154"/>
-  <object id="19" x="102" y="3154"/>
-  <object id="20" x="136" y="3098"/>
-  <object id="21" x="103" y="3050" width="25" height="36"/>
-  <object id="22" x="484" y="3111"/>
-  <object id="23" x="214" y="2927"/>
-  <object id="24" x="245" y="2987"/>
-  <object id="25" x="193" y="2936"/>
-  <object id="26" x="555" y="3082"/>
-  <object id="27" x="560" y="3067"/>
-  <object id="28" x="385" y="3134" width="2"/>
-  <object id="29" x="387" y="3006" width="62" height="133"/>
-  <object id="30" gid="840" x="458" y="3120" width="32" height="32"/>
-  <object id="31" x="137" y="3076" width="216" height="60"/>
-  <object id="32" x="378" y="3007" width="71" height="67"/>
- </objectgroup>
  <layer name="Capa de patrones 2" width="100" height="100" opacity="0.59">
   <properties>
    <property name="Pared" value="Pared"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1DEKgDAQRcGABxZvliOKYCEaTAwubDEDaQSb/4ylAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIdteZ6Id2jvFnXo0yMXHXJxP3LRIRe753Lfsbd5PY8uMd42r439R3roNG+kRWv/mS70jfZYb+f6XI//zN4P/6tY28dvXY8YO0Z9lII=
+   eJzt3TsOgmAQhVES2f+m2JixMKER/R/DDHiKU/LwfgVYsT2WZQNItK73vNZVvTZ6Gz2HHjFtoo7Ro6+JFtfU2i77ftEia5uj8+rRv03PdkfPES3O3e/bM12PsS1nvl+N/q+h7f3V1rV6ZN8rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwB34TuT8vX75Ju2eHvE9enfVI2YrPeq0sGs9etTS8pz5JPs3/Bs9YrfVo4be/fSI65F5PHO31KMWPc73BMSU6Wg=
   </data>
  </layer>
 </map>

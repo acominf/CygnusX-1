@@ -33,6 +33,7 @@ public class Jugador extends Actor implements InputProcessor{
 
         this.tam = 3;
         sprite = new Sprite(new Texture(Gdx.files.internal("abajo.png")));
+        sprite.translate(x, y);
     }
 
     public void draw(final SpriteBatch batch){  //metodo
@@ -42,24 +43,34 @@ public class Jugador extends Actor implements InputProcessor{
 
         if(keyDown && sprite.getY() > 0){ //abajo
             sprite.translateY(-5f);
+            colisionDown = mapa.getCell((int)((sprite.getX()/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            if(colisionDown)
+                sprite.translateY(5f);
         }
         if(keyUp && sprite.getY() < Gdx.graphics.getHeight()){ //arriba
             sprite.translateY(5f);
+            colisionDown = mapa.getCell((int)((sprite.getX()/tileWidth+1)), (int)(((sprite.getY()+sprite.getHeight()/1.3)/tileHeight))).getTile().getProperties().containsKey("Pared");
+            if(colisionDown)
+                sprite.translateY(-5f);
         }
         if(keyLeft && sprite.getX() > 0){ //izquierda
             sprite.translateX(-5f);
+            colisionDown = mapa.getCell((int)(((sprite.getX()-sprite.getWidth()/3)/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            if(colisionDown)
+                sprite.translateX(5f);
         }
         if(keyRight && sprite.getX() < Gdx.graphics.getWidth()){ // izquierda
             sprite.translateX(5f);
+            colisionDown = mapa.getCell((int)(((sprite.getX()+sprite.getWidth()/3)/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            if(colisionDown)
+                sprite.translateX(-5f);
         }
 
-        System.out.println((int)((sprite.getX()/tileWidth)+1) + ", " + (int)((99-(sprite.getY()/tileHeight))+1));
-
-        //colisionDown = mapa.getCell((int)(sprite.getX()/tileWidth), (int)((sprite.getY()-sprite.getHeight())/tileHeight)).getTile().getProperties().containsKey("Pared");
-        //System.out.println(mapa.getCell((int)(sprite.getX()/tileHeight), (int)((sprite.getY()-sprite.getHeight())/tileHeight)).getTile().getId());        ;
-        if(colisionDown){
-            sprite.translateY(5f);
-        }
+        //System.out.println((int)((sprite.getX()/tileWidth)+1) + ", " + (int)((99-(sprite.getY()/tileHeight))+1));
+        //System.out.println(mapa.getCell((int)(sprite.getX()/tileWidth+1), (int)((sprite.getY()/tileHeight))).getTile().getId());
+        //if(colisionDown){
+        //    sprite.translateY(5f);
+        //}
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 

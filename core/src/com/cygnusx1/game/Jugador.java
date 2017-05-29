@@ -1,7 +1,6 @@
 package com.cygnusx1.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -15,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by andrey on 9/05/17.
  */
 public class Jugador extends Actor implements InputProcessor{
+    private Pistola pistola;
     private Sprite sprite;
     private int vidas; // vidas
     private TiledMapTileLayer mapa;
@@ -42,6 +42,7 @@ public class Jugador extends Actor implements InputProcessor{
 
         sprite = new Sprite(abajo);
         sprite.translate(x, y);
+        pistola = new Pistola(sprite.getX(), sprite.getY(), mapa);
     }
 
     public void draw(final SpriteBatch batch){  //metodo
@@ -79,8 +80,6 @@ public class Jugador extends Actor implements InputProcessor{
                 sprite.translateX(-5f);
         }
 
-        //System.out.println((int)((sprite.getX()/tileWidth)+1) + ", " + (int)((99-(sprite.getY()/tileHeight))+1));
-        //System.out.println(mapa.getCell((int)(sprite.getX()/tileWidth+1), (int)((sprite.getY()/tileHeight))).getTile().getId());
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 

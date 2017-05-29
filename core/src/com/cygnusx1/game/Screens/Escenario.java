@@ -69,7 +69,7 @@ public class Escenario implements Screen{
             ene1.move();
             //ene2.move();
         }
-
+        ene1.draw((SpriteBatch)mapRen.getBatch());
         rjug = jug.rectangulo();
         rene1 = ene1.rectangulo();
         colision = rjug.overlaps(rene1);

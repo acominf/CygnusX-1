@@ -1,29 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="33">
- <tileset firstgid="1" name="Hola" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
-  <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
-  <tile id="839">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="scifi_platformTiles_32x32" tilewidth="32" tileheight="32" tilecount="805">
+  <image source="scifi_platformTiles_32x32.png" width="1120" height="736"/>
+  <tile id="70">
    <properties>
-    <property name="Pared" value="Pared"/>
+    <property name="Pared" value=""/>
    </properties>
   </tile>
-  <tile id="943">
+  <tile id="71">
    <properties>
-    <property name="Pared" value="Pared"/>
+    <property name="Pared" value=""/>
    </properties>
   </tile>
-  <tile id="1027">
+  <tile id="105">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="106">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="142">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="178">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="219">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="246">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="251">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="252">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="253">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="354">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="355">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="385">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="389">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="390">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="391">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="420">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="421">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="422">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="423">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="424">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="425">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="426">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="504">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="506">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="507">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="609">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="610">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="612">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="676">
    <properties>
     <property name="Pared" value=""/>
    </properties>
   </tile>
  </tileset>
- <layer name="Capa de patrones 2" width="100" height="100" opacity="0.59">
-  <properties>
-   <property name="Pared" value="Pared"/>
-  </properties>
+ <tileset firstgid="806" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32" tilecount="3072">
+  <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
+  <tile id="68">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="884">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1028">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1029">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="2875">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt3TsOgmAQhVES2f+m2JixMKER/R/DDHiKU/LwfgVYsT2WZQNItK73vNZVvTZ6Gz2HHjFtoo7Ro6+JFtfU2i77ftEia5uj8+rRv03PdkfPES3O3e/bM12PsS1nvl+N/q+h7f3V1rV6ZN8rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwB34TuT8vX75Ju2eHvE9enfVI2YrPeq0sGs9etTS8pz5JPs3/Bs9YrfVo4be/fSI65F5PHO31KMWPc73BMSU6Wg=
+   eJzt3T9TE0EYx/ENOqHjhRAp1BcBlaZQZ6BTwMyEilCoLYU4NpbM0Af/UNrDG7EiLdA6Dui4N9xN9p7b3dzd7t4+yf2K71zC6STsh71NSMKdLwlxHqjtTr5Qt9NUF91ybSm9XqlWyPs/7x5lx19nYRvzk24+eITxqWJxnEZNHsvbeeLYU3iUPj6dkOPZMfF4IW/npWOvWuxRdZ3IPEYPp/9XnSPv5O28d+xDSY/V5fLFHvsq86OsRzbuWyTVY10IsSGK24ulabZ9WYvuMetYVWVu6DyyfzOU47snilv1vtj22aIel1198+BhMhk7etD13DQ/1Pth21fF46prbh5MVAMf84M+1m16ftx0i01SD908iT3+ZeZHXQ+dRdPz47pbbF49kjmyu1L+OYdtzYg1PxbJI0sdy8RnU35tJ92qqRZj5fIm2Vb9ma9SWzwGqUU2b7L1ha4zdH7ptlV/5uGRt9CN8ayxt/37kPPjtHPfV9m3BfBQTQYaC9242+aIrpDzoycNHqWtLZiHSzajkPPjmTR4ntY3eFwrHr3l+7h6+LCIOT/KekyU+cHVo8qYutzOz0AWLh49hh5Nxc1jFR4sPXrw8N6+NBilHVgeX8GjGY9bkU/3uCoL60d4j1nPzycGD46Pr9rgoVrQ+YHjVRwP+jphT1lDYo9N2zxsr9nCI56H7rVaeIT3uDJ49MhxCutHMx6XMzxosccmlkcok1keJgd4NOMR+3udh+DBqybXj9jfa1sbPjAX+761MXjwCh68ggev4MErePAKHryCB6/gwSt48AoevIIHr+DBK3jwCh68ggev4MErePAKHryCB6/a7jF2/EwnPBY7ePAKHryCB6/gwSt48AoevIIHr+DBK3i4l30uxyV4+OtO1Ouv7F96GR7+Sj6/9KlGb2WD9DI8/HrskLGm100en+HhvY9yPI/IWGfX/8huLd3Bw3vf5XieGXoj929b2l2Ch+/Uv5VbpzV4eC37W4ejmh3Aw7tH39NnxOHBxyN5XggPHh7Z83R4xPdQf28Cj7ge9PdY8IDHogUPXvlaP5LL8HBvnzyng8d8h9ej/EbPg246p3nSb5GP7oeHe/Q86KZzmicddvLBw3/0POimc5rDg1/wCB9dE2xrxGH6Wi48wvVL2KMeR/Bg5YHjVdh+dMydkjEfd6bnpT2DB/vgwSt41O+LKKbbB49msr0vWvc1eDTjYXr/VfK+Kng076Gea1atDw94tLg6Huvy+oYobuHhz0M9FzN9Hyj1GMrre6K4hYd7/wHciKlL
   </data>
  </layer>
 </map>

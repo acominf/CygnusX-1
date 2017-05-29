@@ -2,6 +2,7 @@ package com.cygnusx1.game.Screens;
 
 import com.badlogic.gdx.Gdx;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -40,8 +41,6 @@ public class Escenario implements Screen{
     private Rectangle rjug;
     private Rectangle rene1;
 
-    private Sprite bala;
-
     public Escenario(CygnusX1 j){
         juego = j;
     }
@@ -69,12 +68,13 @@ public class Escenario implements Screen{
             ene1.move();
             //ene2.move();
         }
+
         ene1.draw((SpriteBatch)mapRen.getBatch());
         rjug = jug.rectangulo();
         rene1 = ene1.rectangulo();
         colision = rjug.overlaps(rene1);
 
-        if(colision){
+        /*if(colision){
             //ene1.remove();
 
             //juego.setScreen(new Combate(juego, this));
@@ -82,6 +82,7 @@ public class Escenario implements Screen{
 
         //if(!ene1.exists())
             //ene1.draw((SpriteBatch)mapRen.getBatch());
+            */
         mapRen.getBatch().end();
         //mapRen.render(new int[] {1});
     }
@@ -90,7 +91,7 @@ public class Escenario implements Screen{
     public void show(){
         map = new TmxMapLoader().load("map.tmx");
         jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
-        bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
+        //bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         ene1 = new Monstruo1(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
         //ene2 = new Monstruo2(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
         mapRen = new OrthogonalTiledMapRenderer(map);

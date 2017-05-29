@@ -10,20 +10,17 @@ import com.badlogic.gdx.math.Rectangle;
  */
 public abstract class Arma {
     private TiledMapTileLayer mapa;
-    protected Sprite sprite;
+    protected Sprite arma;
+    public Sprite bala;
+    protected int balas;
 
     public Arma(TiledMapTileLayer mapa){
         this.mapa = mapa;
     }
 
-    public void draw(SpriteBatch batch){
-        batch.draw(sprite, sprite.getX(), sprite.getY());
+    public void draw(SpriteBatch batch, float x, float y){
+        batch.draw(arma, x+30, y-30);
     }
 
-    public Rectangle rectangulo(){
-        return sprite.getBoundingRectangle();
-    }
-
-    public abstract void move();
-
+    public abstract void dispara(Sprite sprite, SpriteBatch batch);
 }

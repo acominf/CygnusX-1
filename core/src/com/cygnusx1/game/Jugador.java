@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by andrey on 9/05/17.
  */
 public class Jugador extends Actor implements InputProcessor{
-    private Pistola pistola;
+    public Arma pistola;
     private Sprite sprite;
     private int vidas; // vidas
     private TiledMapTileLayer mapa;
@@ -28,9 +28,12 @@ public class Jugador extends Actor implements InputProcessor{
     private Texture abajo;
     private Texture izquierda;
     private Texture derecha;
+    private Texture texDisparo;
 
     public float timeSeconds = 0f;
-    public float period = 0.1f;
+    public float period = 0.5f;
+    private boolean dispara;
+    int cont = 0;
 
     public Jugador(int x, int y, TiledMapTileLayer m){
         mapa = m;
@@ -46,10 +49,9 @@ public class Jugador extends Actor implements InputProcessor{
     }
 
     public void draw(final SpriteBatch batch){  //metodo
-        Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
+        //Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
         boolean colisionDown;
-
 
         if(keyDown && sprite.getY() > 0){ //abajo
             sprite.translateY(-5f);
@@ -80,28 +82,52 @@ public class Jugador extends Actor implements InputProcessor{
                 sprite.translateX(-5f);
         }
 
-        batch.draw(sprite, sprite.getX(), sprite.getY());
-    }
-
-    public void disparaBala(){
-        Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
-        int cont = 0;
-        while(cont != 30){
-            if(sprite.getTexture() == derecha){
-                bala.translateX(5f);
-            }
-            else
-                if(sprite.getTexture() == izquierda){
-                    bala.translateX(-5f);
-                }
-                else
-                    if(sprite.getTexture() == arriba){
-                        bala.translateY(5f);
-                    }
-                    else
-                        bala.translateY(-5f);
-            cont ++;
+        if(dispara){
+            cont = 30;
+            texDisparo = sprite.getTexture();
+            pistola.balas--;
+            pistola.bala.translate(sprite.getX(), sprite.getY());
+            System.out.println("Has dispparado");
+            dispara = false;
         }
+
+        if(cont != 0) {
+            batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
+            timeSeconds += Gdx.graphics.getRawDeltaTime();
+        }
+        if(timeSeconds > period && cont != 0){
+            timeSeconds -= period;
+            System.out.println("disparando" + cont);
+            //pistola.bala.translate(sprite.getX(), sprite.getY());
+            batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
+            if(cont > 0){
+                if(texDisparo == derecha){
+                    pistola.bala.translateX(2f);
+                } else {
+                    if (texDisparo == izquierda) {
+                        pistola.bala.translateX(-2f);
+                    } else {
+                        if (texDisparo == arriba) {
+                            pistola.bala.translateY(2f);
+                        } else {
+                            if (texDisparo == abajo) {
+                                pistola.bala.translateY(-2f);
+                            }
+                        }
+                    }
+                }
+                cont--;
+            }
+
+        }
+        else{
+            if(pistola.bala != null){
+                pistola.bala.getTexture().dispose();
+            }
+        }
+
+        pistola.draw(batch, sprite.getX(), sprite.getY());
+        batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 
     @Override
@@ -120,7 +146,7 @@ public class Jugador extends Actor implements InputProcessor{
                 keyLeft = true;
                 break;
             case 62:
-                disparaBala();
+                dispara = true;
                 break;
 
         }
@@ -141,6 +167,8 @@ public class Jugador extends Actor implements InputProcessor{
                 break;
             case 21: //left
                 keyLeft = false;
+                break;
+            case 62:
                 break;
         }
         return false;

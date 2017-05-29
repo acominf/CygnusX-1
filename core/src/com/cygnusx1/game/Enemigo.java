@@ -13,32 +13,48 @@ import com.badlogic.gdx.math.Rectangle;
  */
 
 public abstract class Enemigo{
-    private TiledMapTileLayer mapa;
-    protected int vidas;
-    protected Sprite sprite;
-    protected int counter = 0;
-    private boolean removed = false;
+    public Sprite sprite;
+    public Sprite ataque;
+    public Rectangle rectangle;
 
-    public Enemigo(TiledMapTileLayer mapa){
-        this.mapa = mapa;
+    public boolean colision = false;
+    public boolean alive = true;
+    public int counter = 0;
+    public int counter2 = 0;
+    public int lives;
+
+    public Enemigo(){
     }
 
-    public void remove(){
-        removed = true;
+    public float getX(){
+        return sprite.getX();
     }
 
-    public boolean exists(){
-        return removed;
+    public float getY(){
+        return sprite.getY();
     }
 
-    public void draw(SpriteBatch batch){
-        batch.draw(sprite, sprite.getX(), sprite.getY());
+    public void hit(SpriteBatch batch, Sprite bala, float x, float y){
+        if(!colisiona(bala.getBoundingRectangle()) && alive && lives > 0){
+            draw(batch);
+        }
+        else{
+            if(lives > 0){
+                lives--;
+                bala.setPosition(x, y);
+            }
+            else{
+                alive = false;
+            }
+        }
     }
 
-    public Rectangle rectangulo(){
-        return sprite.getBoundingRectangle();
+    public boolean colisiona(Rectangle rec){
+        rectangle = sprite.getBoundingRectangle();
+        return rectangle.overlaps(rec);
     }
 
     public abstract void move();
 
+    public abstract void draw(SpriteBatch batch);
 }

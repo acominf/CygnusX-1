@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="6">
- <tileset firstgid="1" name="scifi_platformTiles_32x32" tilewidth="32" tileheight="32" tilecount="805">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="scifi_platformTiles_32x32" tilewidth="32" tileheight="32" tilecount="805" columns="35">
   <image source="scifi_platformTiles_32x32.png" width="1120" height="736"/>
   <tile id="70">
    <properties>
@@ -22,7 +22,27 @@
     <property name="Pared" value=""/>
    </properties>
   </tile>
+  <tile id="140">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="141">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
   <tile id="142">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="175">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="176">
    <properties>
     <property name="Pared" value=""/>
    </properties>
@@ -158,7 +178,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="806" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32" tilecount="3072">
+ <tileset firstgid="806" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
   <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
   <tile id="68">
    <properties>
@@ -180,6 +200,56 @@
     <property name="Pared" value=""/>
    </properties>
   </tile>
+  <tile id="1030">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1031">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1032">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1033">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1034">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1035">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1036">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1037">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1038">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
+  <tile id="1039">
+   <properties>
+    <property name="Pared" value=""/>
+   </properties>
+  </tile>
   <tile id="2875">
    <properties>
     <property name="Pared" value=""/>
@@ -188,7 +258,7 @@
  </tileset>
  <layer name="Capa de Patrones 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
 </map>

@@ -14,24 +14,23 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by andrey on 9/05/17.
  */
 public class Jugador extends Actor implements InputProcessor{
-    public Arma pistola;
     private Sprite sprite;
-    private int vidas; // vidas
     private TiledMapTileLayer mapa;
 
     private boolean keyDown; //flechas de movimiento
     private boolean keyUp;
     private boolean keyLeft;
     private boolean keyRight;
-
     private Texture arriba;
+
     private Texture abajo;
     private Texture izquierda;
     private Texture derecha;
     private Texture texDisparo;
 
+    private int vidas; // vida
     public float timeSeconds = 0f;
-    public float period = 0.5f;
+    public float period = 0.025f;
     private boolean dispara;
     int cont = 0;
 
@@ -45,10 +44,10 @@ public class Jugador extends Actor implements InputProcessor{
 
         sprite = new Sprite(abajo);
         sprite.translate(x, y);
-        pistola = new Pistola(sprite.getX(), sprite.getY(), mapa);
+
     }
 
-    public void draw(final SpriteBatch batch){  //metodo
+    public void draw(final SpriteBatch batch, Pistola pistola){  //metodo
         //Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
         boolean colisionDown;
@@ -87,33 +86,31 @@ public class Jugador extends Actor implements InputProcessor{
             texDisparo = sprite.getTexture();
             pistola.balas--;
             //pistola.bala.setTexture(new Texture(Gdx.files.internal("bullet.png")));
-            pistola.relocaliza(sprite.getX(), sprite.getY());
-            System.out.println("Has disparado");
-            System.out.println(pistola.bala.getX() + ", " + pistola.bala.getY());
+            //pistola.relocaliza(sprite.getX(), sprite.getY());
+            pistola.bala.setPosition(sprite.getX(), sprite.getY());
+            //System.out.println("Has disparado");
+            //System.out.println(pistola.bala.getX() + ", " + pistola.bala.getY());
             dispara = false;
         }
 
-        if(cont != 0) {
+        if(cont != 0){
             batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
             timeSeconds += Gdx.graphics.getRawDeltaTime();
         }
         if(timeSeconds > period && cont != 0){
             timeSeconds -= period;
-            System.out.println("Disparando... " + cont);
-            //pistola.bala.translate(sprite.getX(), sprite.getY());
-            //batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
             if(cont > 0){
                 if(texDisparo == derecha){
-                    pistola.bala.translateX(5f);
+                    pistola.bala.translateX(15f);
                 } else {
                     if (texDisparo == izquierda) {
-                        pistola.bala.translateX(-5f);
+                        pistola.bala.translateX(-15f);
                     } else {
                         if (texDisparo == arriba) {
-                            pistola.bala.translateY(5f);
+                            pistola.bala.translateY(15f);
                         } else {
                             if (texDisparo == abajo) {
-                                pistola.bala.translateY(-5f);
+                                pistola.bala.translateY(-15f);
                             }
                         }
                     }
@@ -121,12 +118,8 @@ public class Jugador extends Actor implements InputProcessor{
                 cont--;
             }
         }
-        else{
-            if(pistola.bala.getTexture() != null){
-                pistola.bala.getTexture().dispose();
-            }
-        }
 
+        batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
         //pistola.draw(batch, sprite.getX(), sprite.getY());
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
@@ -147,7 +140,8 @@ public class Jugador extends Actor implements InputProcessor{
                 keyLeft = true;
                 break;
             case 62:
-                dispara = true;
+                if(cont == 0)
+                    dispara = true;
                 break;
 
         }

@@ -5,52 +5,40 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Rectangle;
 
 /**
  * Created by andrey on 28/05/17.
  */
-public class Pistola extends Arma {
+public class Pistola extends Arma{
+
     private TiledMapTileLayer mapa;
     private boolean colisionDown;
 
-    public Pistola(float x, float y, TiledMapTileLayer mapa) {
-        super(mapa);
+    public Pistola(float x, float y){
         balas = 100;
-        arma = new Sprite(new Texture(Gdx.files.internal("pistola.png")));
-        bala = new Sprite(new Texture(Gdx.files.internal("bala1.png")));
-        arma.translate(x, y);
+        //arma = new Sprite(new Texture(Gdx.files.internal("pistola.png")));
+        bala = new Sprite(new Texture(Gdx.files.internal("bala.png")));
+        System.out.print("Bala construida");
+        //arma.translate(x, y);
         bala.translate(x, y);
     }
 
-    @Override
+    //@Override
     public void dispara(Sprite jug, SpriteBatch batch){
 
     }
 
-        /*
-    public void disparaBala(){
-        Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
-        int cont = 0;
-        while(cont != 30){
-            if(sprite.getTexture() == derecha){
-                bala.translateX(5f);
-            }
-            else
-                if(sprite.getTexture() == izquierda){
-                    bala.translateX(-5f);
-                }
-                else
-                    if(sprite.getTexture() == arriba){
-                        bala.translateY(5f);
-                    }
-                    else
-                        bala.translateY(-5f);
-            cont ++;
-        }
+    public void relocaliza(float x, float y){
+        bala.translate(x, y);
     }
-    */
 
     public void recarga(){
         balas = 100;
+    }
+
+    public Rectangle rectangulo(){
+        //rectangulo de la bala, no de la postola
+        return bala.getBoundingRectangle();
     }
 }

@@ -28,9 +28,11 @@ public class Menu implements Screen{
         stage = new Stage(new ScreenViewport());
         ImageButton boton1 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("playButton.png")))));
         ImageButton boton2 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("exitButton.png")))));
+        ImageButton boton3 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("helpButton.png")))));
+        ImageButton boton4 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("howButton.png")))));
 
         boton1.setSize(64, 64);
-        boton1.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2+100);
+        boton1.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2+200);
         boton1.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -46,7 +48,7 @@ public class Menu implements Screen{
         stage.addActor(boton1);
 
         boton2.setSize(64, 64);
-        boton2.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-100);
+        boton2.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-200);
         boton2.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -61,7 +63,35 @@ public class Menu implements Screen{
 
         });
         stage.addActor(boton2);
+        boton3.setSize(64, 64);
+        boton3.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2+100);
+        boton3.addListener(new InputListener(){
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
+            }
+
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
+                return true;
+            }
+
+        });
+        stage.addActor(boton3);
+
+        boton4.setSize(64, 64);
+        boton4.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-100);
+        boton4.addListener(new InputListener(){
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
+                return true;
+            }
+
+        });
+        stage.addActor(boton4);
     }
 
     @Override
@@ -83,7 +113,6 @@ public class Menu implements Screen{
     public void resize(int width, int height) {
 
     }
-
     @Override
     public void pause() {
 

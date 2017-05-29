@@ -58,10 +58,8 @@ public class Portada implements Screen{
             timer2--;
             portada2.draw(batch);
         }
-        else if(timer3 >= 0){
-            timer3--;
+        else
             portada3.draw(batch);
-        }
         batch.end();
 
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){

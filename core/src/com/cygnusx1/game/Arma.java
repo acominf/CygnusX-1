@@ -9,13 +9,12 @@ import com.badlogic.gdx.math.Rectangle;
  * Created by andrey on 28/05/17.
  */
 public abstract class Arma {
-    private TiledMapTileLayer mapa;
     protected Sprite arma;
     public Sprite bala;
     protected int balas;
+    protected Rectangle recBala;
 
-    public Arma(TiledMapTileLayer mapa){
-        this.mapa = mapa;
+    public Arma(){
     }
 
     public void draw(SpriteBatch batch, float x, float y){

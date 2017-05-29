@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
@@ -14,31 +15,24 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class Jugador extends Actor implements InputProcessor{
     private Sprite sprite;
     private int vidas; // vidas
-    private int x;
-    private int y;
-    private float tam;
     private TiledMapTileLayer mapa;
-    private CygnusX1 juego;
+
     private boolean keyDown; //flechas de movimiento
     private boolean keyUp;
     private boolean keyLeft;
     private boolean keyRight;
 
 
-    public Jugador(int x, int y, CygnusX1 game, TiledMapTileLayer m){
-        this.mapa = m;
-        juego = game;
-        this.x = x;
-        this.y = y;
+    public Jugador(int x, int y, TiledMapTileLayer m){
+        mapa = m;
 
-        this.tam = 3;
         sprite = new Sprite(new Texture(Gdx.files.internal("abajo.png")));
         sprite.translate(x, y);
     }
 
     public void draw(final SpriteBatch batch){  //metodo
-        float oldX = getX(), oldY = getY(), tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
-        boolean colisionUp = false, colisionDown = false, colisionRight = false, colisionLeft = false;
+        float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
+        boolean colisionDown;
 
 
         if(keyDown && sprite.getY() > 0){ //abajo
@@ -47,7 +41,7 @@ public class Jugador extends Actor implements InputProcessor{
             if(colisionDown)
                 sprite.translateY(5f);
         }
-        if(keyUp && sprite.getY() < Gdx.graphics.getHeight()){ //arriba
+        if(keyUp && sprite.getY() < 32*98){ //arriba //numero de celdas -2 * tamaño de la celda
             sprite.translateY(5f);
             colisionDown = mapa.getCell((int)((sprite.getX()/tileWidth+1)), (int)(((sprite.getY()+sprite.getHeight()/1.3)/tileHeight))).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
@@ -59,7 +53,7 @@ public class Jugador extends Actor implements InputProcessor{
             if(colisionDown)
                 sprite.translateX(5f);
         }
-        if(keyRight && sprite.getX() < Gdx.graphics.getWidth()){ // izquierda
+        if(keyRight && sprite.getX() < 32*98){ // izquierda
             sprite.translateX(5f);
             colisionDown = mapa.getCell((int)(((sprite.getX()+sprite.getWidth()/3)/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
@@ -110,6 +104,18 @@ public class Jugador extends Actor implements InputProcessor{
                 break;
         }
         return false;
+    }
+
+    public float getX(){
+        return sprite.getX();
+    }
+
+    public float getY(){
+        return sprite.getY();
+    }
+
+    public Rectangle rectangulo(){
+        return sprite.getBoundingRectangle();
     }
 
     @Override

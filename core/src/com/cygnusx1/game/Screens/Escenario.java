@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -40,6 +41,7 @@ public class Escenario implements Screen{
     boolean colision = false;
     private Rectangle rjug;
     private Rectangle rene1;
+    private Sound sound;
 
     public Escenario(CygnusX1 j){
         juego = j;
@@ -95,7 +97,9 @@ public class Escenario implements Screen{
         ene1 = new Monstruo1(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
         //ene2 = new Monstruo2(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
         mapRen = new OrthogonalTiledMapRenderer(map);
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera = new OrthographicCamera(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+        sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
+        sound.play();
 
         Gdx.input.setInputProcessor(jug);
     }
@@ -104,6 +108,7 @@ public class Escenario implements Screen{
     public void dispose() {
         mapRen.dispose();
         map.dispose();
+        sound.dispose();
     }
 
     @Override

@@ -81,13 +81,15 @@ public class Jugador extends Actor implements InputProcessor{
             if(colisionDown)
                 sprite.translateX(-5f);
         }
-
+        /* System.out.println(sprite.getX() + ", " + sprite.getY()); */
         if(dispara){
             cont = 30;
             texDisparo = sprite.getTexture();
             pistola.balas--;
-            pistola.bala.translate(sprite.getX(), sprite.getY());
-            System.out.println("Has dispparado");
+            //pistola.bala.setTexture(new Texture(Gdx.files.internal("bullet.png")));
+            pistola.relocaliza(sprite.getX(), sprite.getY());
+            System.out.println("Has disparado");
+            System.out.println(pistola.bala.getX() + ", " + pistola.bala.getY());
             dispara = false;
         }
 
@@ -97,36 +99,35 @@ public class Jugador extends Actor implements InputProcessor{
         }
         if(timeSeconds > period && cont != 0){
             timeSeconds -= period;
-            System.out.println("disparando" + cont);
+            System.out.println("Disparando... " + cont);
             //pistola.bala.translate(sprite.getX(), sprite.getY());
-            batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
+            //batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
             if(cont > 0){
                 if(texDisparo == derecha){
-                    pistola.bala.translateX(2f);
+                    pistola.bala.translateX(5f);
                 } else {
                     if (texDisparo == izquierda) {
-                        pistola.bala.translateX(-2f);
+                        pistola.bala.translateX(-5f);
                     } else {
                         if (texDisparo == arriba) {
-                            pistola.bala.translateY(2f);
+                            pistola.bala.translateY(5f);
                         } else {
                             if (texDisparo == abajo) {
-                                pistola.bala.translateY(-2f);
+                                pistola.bala.translateY(-5f);
                             }
                         }
                     }
                 }
                 cont--;
             }
-
         }
         else{
-            if(pistola.bala != null){
+            if(pistola.bala.getTexture() != null){
                 pistola.bala.getTexture().dispose();
             }
         }
 
-        pistola.draw(batch, sprite.getX(), sprite.getY());
+        //pistola.draw(batch, sprite.getX(), sprite.getY());
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 

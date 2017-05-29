@@ -23,4 +23,8 @@ public abstract class Arma {
     }
 
     public abstract void dispara(Sprite sprite, SpriteBatch batch);
+
+    public void relocaliza(float x, float y){
+        bala.translate(x, y);
+    }
 }

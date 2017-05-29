@@ -30,7 +30,7 @@ public class Menu implements Screen{
         ImageButton boton2 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("exitButton.png")))));
 
         boton1.setSize(64, 64);
-        boton1.setPosition(Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-200);
+        boton1.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2+100);
         boton1.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -45,14 +45,28 @@ public class Menu implements Screen{
         });
         stage.addActor(boton1);
 
-        //ImageButton boton2 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("exitButton.png")))));
-        //boton2.setSize(64, 64);
-        //boton2.setSize();
+        boton2.setSize(64, 64);
+        boton2.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-100);
+        boton2.addListener(new InputListener(){
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                //  juego.dispose();
+                juego.dispose();
+                Gdx.app.exit();
+            }
+
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
+                return true;
+            }
+
+        });
+        stage.addActor(boton2);
+
     }
 
     @Override
     public void render(float delta){
-        Gdx.gl.glClearColor(1, 1, 1, 1 );
+        Gdx.gl.glClearColor(0, 0, 0, 0 );
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Gdx.graphics.getDeltaTime());

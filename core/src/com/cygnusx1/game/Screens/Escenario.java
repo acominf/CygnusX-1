@@ -5,6 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -38,21 +40,14 @@ public class Escenario implements Screen{
     private Rectangle rjug;
     private Rectangle rene1;
 
+    private Sprite bala;
 
     public Escenario(CygnusX1 j){
         juego = j;
-
-        //stage = new Stage(new ScreenViewport());
-        //stage.addActor(jug);
-
-        //SpriteBatch batch = new SpriteBatch();
-
     }
 
     @Override
     public void render(float delta){
-
-
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -80,12 +75,13 @@ public class Escenario implements Screen{
         colision = rjug.overlaps(rene1);
 
         if(colision){
-            juego.setScreen(new Combate(juego, this));
+            //ene1.remove();
 
-            System.out.println("salir");
+            //juego.setScreen(new Combate(juego, this));
         }
 
-        ene1.draw((SpriteBatch)mapRen.getBatch());
+        //if(!ene1.exists())
+            //ene1.draw((SpriteBatch)mapRen.getBatch());
         mapRen.getBatch().end();
         //mapRen.render(new int[] {1});
     }
@@ -94,15 +90,12 @@ public class Escenario implements Screen{
     public void show(){
         map = new TmxMapLoader().load("map.tmx");
         jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
+        bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         ene1 = new Monstruo1(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
         //ene2 = new Monstruo2(400, 400, (TiledMapTileLayer)(map.getLayers().get(0)));
-
-
         mapRen = new OrthogonalTiledMapRenderer(map);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        //camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()); // AREA DQUE CUBRE LA CANAARA
-        //camera.position.set(jug.getX() + jug.getWidth() / 2, jug.getY() + jug.getHeight() /2, 0 );
         Gdx.input.setInputProcessor(jug);
     }
 

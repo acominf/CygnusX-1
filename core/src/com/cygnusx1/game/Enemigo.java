@@ -17,9 +17,18 @@ public abstract class Enemigo{
     protected int vidas;
     protected Sprite sprite;
     protected int counter = 0;
+    private boolean removed = false;
 
     public Enemigo(TiledMapTileLayer mapa){
         this.mapa = mapa;
+    }
+
+    public void remove(){
+        removed = true;
+    }
+
+    public boolean exists(){
+        return removed;
     }
 
     public void draw(SpriteBatch batch){

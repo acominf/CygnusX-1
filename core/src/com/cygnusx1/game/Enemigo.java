@@ -34,17 +34,17 @@ public abstract class Enemigo{
         return sprite.getY();
     }
 
-    public void hit(SpriteBatch batch, Sprite bala, float x, float y){
-        if(!colisiona(bala.getBoundingRectangle()) && alive && lives > 0){
+    public void hit(SpriteBatch batch, Arma gun, float x, float y){
+        if(!colisiona(gun.bala.getBoundingRectangle()) && alive && lives > 0){
             draw(batch);
         }
         else{
             if(lives > 0){
-                lives--;
-                bala.setPosition(x, y);
+                lives -= gun.damage;
+                gun.bala.setPosition(x, y);
             }
             else{
-                if(lives == 0){
+                if(lives <= 0){
                     alive = false;
                 }
             }

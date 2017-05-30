@@ -9,10 +9,15 @@ import com.badlogic.gdx.math.Rectangle;
  * Created by andrey on 28/05/17.
  */
 public abstract class Arma {
-    protected Sprite arma;
     public Sprite bala;
-    protected int balas;
+    protected Sprite arma;
     protected Rectangle recBala;
+    public Rectangle recArma;
+    protected int balas;
+    protected float velocidad;
+    protected float damage;
+    protected int clip;
+    public boolean taked;
 
     public Arma(){
     }
@@ -21,9 +26,11 @@ public abstract class Arma {
         batch.draw(arma, x+30, y-30);
     }
 
-    public abstract void dispara(Sprite sprite, SpriteBatch batch);
+    public void recarga(){
+        balas = clip;
+    }
 
-    public void relocaliza(float x, float y){
-        bala.translate(x, y);
+    public void draw(SpriteBatch batch){
+        batch.draw(arma, arma.getX(), arma.getY());
     }
 }

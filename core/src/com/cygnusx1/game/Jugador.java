@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 public class Jugador extends Actor implements InputProcessor{
     public Sprite sprite;
+    private Rectangle rectangulo;
     public TiledMapTileLayer mapa;
 
     private boolean keyDown; //flechas de movimiento
@@ -44,10 +45,11 @@ public class Jugador extends Actor implements InputProcessor{
 
         sprite = new Sprite(abajo);
         sprite.translate(x, y);
+        rectangulo = sprite.getBoundingRectangle();
 
     }
 
-    public void draw(final SpriteBatch batch, Pistola pistola){  //metodo
+    public void draw(final SpriteBatch batch, Arma pistola){  //metodo
         //Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
         boolean colisionDown;
@@ -101,16 +103,16 @@ public class Jugador extends Actor implements InputProcessor{
             timeSeconds -= period;
             if(cont > 0){
                 if(texDisparo == derecha){
-                    pistola.bala.translateX(15f);
+                    pistola.bala.translateX(pistola.velocidad);
                 } else {
                     if (texDisparo == izquierda) {
-                        pistola.bala.translateX(-15f);
+                        pistola.bala.translateX(-pistola.velocidad);
                     } else {
                         if (texDisparo == arriba) {
-                            pistola.bala.translateY(15f);
+                            pistola.bala.translateY(pistola.velocidad);
                         } else {
                             if (texDisparo == abajo) {
-                                pistola.bala.translateY(-15f);
+                                pistola.bala.translateY(-pistola.velocidad);
                             }
                         }
                     }
@@ -177,12 +179,12 @@ public class Jugador extends Actor implements InputProcessor{
         return sprite.getY();
     }
 
-    public Rectangle rectangulo(){
-        return sprite.getBoundingRectangle();
-    }
-
     public void hit(){
 
+    }
+
+    public boolean hitGun(Rectangle recArma){
+        return rectangulo.overlaps(recArma);
     }
 
     @Override
@@ -213,5 +215,9 @@ public class Jugador extends Actor implements InputProcessor{
     @Override
     public boolean scrolled(int amount) {
         return false;
+    }
+
+    public void rectangle(){
+        rectangulo = sprite.getBoundingRectangle();
     }
 }

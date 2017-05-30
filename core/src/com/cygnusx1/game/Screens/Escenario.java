@@ -27,7 +27,7 @@ public class Escenario implements Screen{
     //private Stage stage;
     private CygnusX1 juego;
     private Jugador jug;
-    private Pistola pistola;
+    private Arma pistola;
     private Monstruo1 ene1;
     private Monstruo2 ene3;
 
@@ -35,9 +35,28 @@ public class Escenario implements Screen{
 
     public float timeSeconds = 0f;
     public float period = 0.1f;
+    private Metralleta metralleta;
 
     public Escenario(CygnusX1 j){
         juego = j;
+    }
+
+    @Override
+    public void show(){
+        map = new TmxMapLoader().load("map.tmx");
+        mapRen = new OrthogonalTiledMapRenderer(map);
+        camera = new OrthographicCamera(Gdx.graphics.getWidth()/1.5f, Gdx.graphics.getHeight()/1.5f);
+        sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
+        sound.play();
+
+        jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
+        ene1 = new Monstruo1(200, 700);
+        ene2 = new Boss(2950, 3000);
+        ene3 = new Monstruo2(400, 1000);
+        pistola = new Pistola(128, 128);
+        metralleta = new Metralleta(200, 500);
+
+        Gdx.input.setInputProcessor(jug);
     }
 
     @Override
@@ -53,7 +72,15 @@ public class Escenario implements Screen{
         camera.position.y = jug.getY()+32;
         camera.update();
 
+        jug.rectangle();
+
         jug.draw((SpriteBatch)mapRen.getBatch(), pistola);
+        if(jug.hitGun(metralleta.recArma)){
+            System.out.println("Junto a arma");
+            pistola = metralleta;
+            metralleta.taked = true;
+        }
+
 
         timeSeconds += Gdx.graphics.getRawDeltaTime();
         if(timeSeconds > period){
@@ -62,39 +89,20 @@ public class Escenario implements Screen{
             ene3.move();
         }
 
-        ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola.bala, jug.getX(),jug.getY()); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
-        ene2.hit((SpriteBatch)(mapRen.getBatch()), pistola.bala, jug.getX(),jug.getY());
-        ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola.bala, jug.getX(),jug.getY());
-
-
+        ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY()); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
+        ene2.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
+        ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
 
         if(!ene2.alive){
-            System.out.println("Escenario 2");
             juego.setScreen(new Escenario2(juego, jug));
         }
-
-        System.out.println("Vida del jefe: " + ene2.lives);
+        if(!metralleta.taked) {
+            metralleta.draw((SpriteBatch) (mapRen.getBatch()));
+        }
         ene2.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
-
+        System.out.println(jug.getX() + ", " + jug.getY());
         //mapRen.render(new int[] {1});
-    }
-
-    @Override
-    public void show(){
-        map = new TmxMapLoader().load("map.tmx");
-        mapRen = new OrthogonalTiledMapRenderer(map);
-        camera = new OrthographicCamera(Gdx.graphics.getWidth()/1.5f, Gdx.graphics.getHeight()/1.5f);
-        sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
-        sound.play();
-
-        jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
-        ene1 = new Monstruo1(400, 400);
-        ene2 = new Boss(2950, 3000);
-        ene3 = new Monstruo2(400, 1000);
-        pistola = new Pistola(128, 128);
-
-        Gdx.input.setInputProcessor(jug);
     }
 
     @Override

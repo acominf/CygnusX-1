@@ -16,25 +16,19 @@ public class Pistola extends Arma{
     private boolean colisionDown;
 
     public Pistola(float x, float y){
-        balas = 100;
-        //arma = new Sprite(new Texture(Gdx.files.internal("pistola.png")));
+        clip = 100;
+        balas = clip;
+        velocidad = 15;
+        damage = 1;
+        taked = false;
         bala = new Sprite(new Texture(Gdx.files.internal("bala.png")));
+        recBala = bala.getBoundingRectangle();
         System.out.print("Bala construida");
-        //arma.translate(x, y);
         bala.translate(x, y);
-    }
-
-    //@Override
-    public void dispara(Sprite jug, SpriteBatch batch){
-
     }
 
     public void relocaliza(float x, float y){
         bala.translate(x, y);
-    }
-
-    public void recarga(){
-        balas = 100;
     }
 
     public Rectangle rectangulo(){

@@ -33,7 +33,7 @@ public class Jugador extends Actor implements InputProcessor{
     public float timeSeconds = 0f;
     public float period = 0.025f;
     private boolean dispara;
-    int cont = 0;
+    public int cont = 0;
 
     public Jugador(int x, int y, TiledMapTileLayer m){
         mapa = m;
@@ -120,7 +120,7 @@ public class Jugador extends Actor implements InputProcessor{
                 cont--;
             }
         }
-
+        System.out.println(cont);
         batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
         //pistola.draw(batch, sprite.getX(), sprite.getY());
         batch.draw(sprite, sprite.getX(), sprite.getY());
@@ -183,8 +183,9 @@ public class Jugador extends Actor implements InputProcessor{
 
     }
 
-    public boolean hitGun(Rectangle recArma){
-        return rectangulo.overlaps(recArma);
+    public boolean hitGun(Arma arma){
+        rectangulo = sprite.getBoundingRectangle();
+        return rectangulo.overlaps(arma.arma.getBoundingRectangle());
     }
 
     @Override

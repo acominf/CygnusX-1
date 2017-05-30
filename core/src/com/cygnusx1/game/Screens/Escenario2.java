@@ -10,9 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.cygnusx1.game.CygnusX1;
-import com.cygnusx1.game.Jugador;
-import com.cygnusx1.game.Pistola;
+import com.cygnusx1.game.*;
 
 /**
  * Created by Oscar Patiño on 29/05/2017.
@@ -25,7 +23,15 @@ public class Escenario2 implements Screen{
     private OrthographicCamera camera;
 
     private Jugador jug;
-    private Pistola pistola;
+    private Arma pistola;
+
+    private Monstruo1 e1;
+    private Monstruo2 e2;
+    private Boss jefe;
+    private Metralleta metralleta;
+
+    public float timeSeconds = 0f;
+    public float period = 0.1f;
 
     public Escenario2(CygnusX1 jueg, Jugador j) {
         juego = jueg;
@@ -43,7 +49,11 @@ public class Escenario2 implements Screen{
         jug.mapa = (TiledMapTileLayer)map.getLayers().get(0);
 
         //jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
+        e1 = new Monstruo1(700, 300);
+        e2 = new Monstruo2(2500, 500);
+        jefe = new Boss(200, 3000);
         pistola = new Pistola(128, 128);
+        metralleta = new Metralleta(2500, 500);
         Gdx.input.setInputProcessor(jug);
 
     }
@@ -62,6 +72,32 @@ public class Escenario2 implements Screen{
         camera.position.x = jug.getX()+32;
         camera.position.y = jug.getY()+32;
         camera.update();
+
+        jug.draw((SpriteBatch)mapRen.getBatch(), pistola);
+        if(jug.hitGun(metralleta)){
+            System.out.println("Junto a arma");
+            pistola = metralleta;
+            metralleta.taked = true;
+        }
+
+        timeSeconds += Gdx.graphics.getRawDeltaTime();
+        if(timeSeconds > period){
+            timeSeconds -=period;
+            e1.move(); //mueve el jugador cada cierto tiempo
+            e2.move();
+        }
+
+        e1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
+        e2.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
+        jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
+
+        if(!jefe.alive){
+            juego.setScreen(new Menu(juego));
+        }
+        if(!metralleta.taked) {
+            metralleta.draw((SpriteBatch) (mapRen.getBatch()));
+        }
+        jefe.draw((SpriteBatch)(mapRen.getBatch()));
 
         mapRen.getBatch().end();
 
@@ -84,11 +120,17 @@ public class Escenario2 implements Screen{
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override
     public void dispose() {
-
+        mapRen.dispose();
+        map.dispose();
+        sound.dispose();
+        e1.sprite.getTexture().dispose();
+        jefe.sprite.getTexture().dispose();
+        e2.sprite.getTexture().dispose();
+        sound.dispose();
     }
 }

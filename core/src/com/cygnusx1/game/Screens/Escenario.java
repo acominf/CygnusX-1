@@ -31,7 +31,7 @@ public class Escenario implements Screen{
     private Monstruo1 ene1;
     private Monstruo2 ene3;
 
-    private Boss ene2;
+    private Boss jefe;
 
     public float timeSeconds = 0f;
     public float period = 0.1f;
@@ -51,8 +51,8 @@ public class Escenario implements Screen{
 
         jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
         ene1 = new Monstruo1(200, 700);
-        ene2 = new Boss(2950, 3000);
-        ene3 = new Monstruo2(400, 1000);
+        jefe = new Boss(2950, 3000);
+        ene3 = new Monstruo2(350, 1400);
         pistola = new Pistola(128, 128);
         metralleta = new Metralleta(200, 500);
 
@@ -72,10 +72,8 @@ public class Escenario implements Screen{
         camera.position.y = jug.getY()+32;
         camera.update();
 
-        jug.rectangle();
-
         jug.draw((SpriteBatch)mapRen.getBatch(), pistola);
-        if(jug.hitGun(metralleta.recArma)){
+        if(jug.hitGun(metralleta)){
             System.out.println("Junto a arma");
             pistola = metralleta;
             metralleta.taked = true;
@@ -89,19 +87,19 @@ public class Escenario implements Screen{
             ene3.move();
         }
 
-        ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY()); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
-        ene2.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
-        ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
+        ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
+        jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
+        ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
 
-        if(!ene2.alive){
+        if(!jefe.alive){
             juego.setScreen(new Escenario2(juego, jug));
         }
         if(!metralleta.taked) {
             metralleta.draw((SpriteBatch) (mapRen.getBatch()));
         }
-        ene2.draw((SpriteBatch)(mapRen.getBatch()));
+        jefe.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
-        System.out.println(jug.getX() + ", " + jug.getY());
+        //System.out.println(jug.getX() + ", " + jug.getY());
         //mapRen.render(new int[] {1});
     }
 
@@ -111,7 +109,7 @@ public class Escenario implements Screen{
         map.dispose();
         sound.dispose();
         ene1.sprite.getTexture().dispose();
-        ene2.sprite.getTexture().dispose();
+        jefe.sprite.getTexture().dispose();
         ene3.sprite.getTexture().dispose();
         sound.dispose();
     }

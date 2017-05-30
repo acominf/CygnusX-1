@@ -72,7 +72,7 @@ public class Escenario implements Screen{
 
         tabla.add(texto).expandX().padTop(10);
         tabla.row();
-        tabla.add(vida).expandX();
+        tabla.add(vida).expandX().padTop(10);
     }
 
     @Override
@@ -127,7 +127,8 @@ public class Escenario implements Screen{
         }
 
         if(jug.vidas <= 0){
-            juego.setScreen(new EndScreen(juego, jug));
+            juego.setScreen(new Menu(juego));
+            //juego.setScreen(new EndScreen(juego, jug));
         }
 
         jefe.draw((SpriteBatch)(mapRen.getBatch()));

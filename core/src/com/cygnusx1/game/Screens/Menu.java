@@ -26,7 +26,7 @@ public class Menu implements Screen{
     public Menu(CygnusX1 j){
         juego = j;
         stage = new Stage(new ScreenViewport());
-        final ImageButton boton1 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("playButton.png")))));
+        ImageButton boton1 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("playButton.png")))));
         ImageButton boton2 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("exitButton.png")))));
         ImageButton boton3 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("helpButton.png")))));
         ImageButton boton4 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("howButton.png")))));
@@ -87,7 +87,6 @@ public class Menu implements Screen{
         boton4.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){

@@ -1,6 +1,7 @@
 package com.cygnusx1.game.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -35,7 +36,10 @@ public class EndScreen implements Screen {
             gameOver.draw(batch);
             timer--;
         }
-        else
+
+        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+            juego.setScreen(new Menu(juego));
+        }
             juego.setScreen(new Menu(juego));
         batch.end();
     }
@@ -57,11 +61,12 @@ public class EndScreen implements Screen {
 
     @Override
     public void hide() {
-
+        gameOver.getTexture().dispose();
+        batch.dispose();
     }
 
     @Override
     public void dispose() {
-        gameOver.getTexture().dispose();
+
     }
 }

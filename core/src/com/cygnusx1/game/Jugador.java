@@ -37,7 +37,7 @@ public class Jugador extends Actor implements InputProcessor{
 
     public Jugador(int x, int y, TiledMapTileLayer m){
         mapa = m;
-
+        vidas = 5;
         arriba = new Texture(Gdx.files.internal("arriba.png"));
         abajo = new Texture(Gdx.files.internal("abajo.png"));
         derecha = new Texture(Gdx.files.internal("derecha.png"));

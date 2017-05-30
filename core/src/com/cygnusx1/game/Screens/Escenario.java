@@ -6,12 +6,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.cygnusx1.game.*;
 
 /**
@@ -23,6 +26,10 @@ public class Escenario implements Screen{
     private Sound sound;
     private OrthogonalTiledMapRenderer mapRen;
     private OrthographicCamera camera;
+    private Label vida;
+    private Label texto;
+    private Table tabla;
+    private SpriteBatch batch;
 
     //private Stage stage;
     private CygnusX1 juego;
@@ -39,6 +46,8 @@ public class Escenario implements Screen{
 
     public Escenario(CygnusX1 j){
         juego = j;
+        batch = new SpriteBatch();
+        tabla = new Table();
     }
 
     @Override
@@ -57,6 +66,13 @@ public class Escenario implements Screen{
         metralleta = new Metralleta(200, 500);
 
         Gdx.input.setInputProcessor(jug);
+        tabla.top();
+        tabla.setFillParent(true);
+        texto = new Label("Vidas", new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE));
+
+        tabla.add(texto).expandX().padTop(10);
+        tabla.row();
+        tabla.add(vida).expandX();
     }
 
     @Override
@@ -71,6 +87,8 @@ public class Escenario implements Screen{
         camera.position.x = jug.getX()+32;
         camera.position.y = jug.getY()+32;
         camera.update();
+        vida = new Label(String.format("%03d", jug.vidas), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE));
+
 
         jug.draw((SpriteBatch)mapRen.getBatch(), pistola);
         if(jug.hitGun(metralleta)){
@@ -79,7 +97,6 @@ public class Escenario implements Screen{
             metralleta.taked = true;
         }
 
-
         timeSeconds += Gdx.graphics.getRawDeltaTime();
         if(timeSeconds > period){
             timeSeconds -=period;
@@ -87,8 +104,9 @@ public class Escenario implements Screen{
             ene3.move();
         }
 
-        if(jug.hitMonster((Enemigo)ene1) || jug.hitMonster((Enemigo)ene3) || jug.hitMonster((Enemigo)(jefe))){
+        if((jug.hitMonster((Enemigo)ene1) || jug.hitMonster((Enemigo)ene3) || jug.hitMonster((Enemigo)(jefe)))){
             jug.vidas--;
+
             jug.sprite.translate(-100, -100);
         }
 
@@ -114,8 +132,17 @@ public class Escenario implements Screen{
 
         jefe.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
+        batch.begin();
+        //texto.draw(batch, 10);
+        vida.draw(batch, 10);
+        batch.end();
         //System.out.println(jug.getX() + ", " + jug.getY());
         //mapRen.render(new int[] {1});
+
+
+
+        //texto.draw(batch, 10);
+
     }
 
     @Override

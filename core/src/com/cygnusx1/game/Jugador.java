@@ -29,7 +29,7 @@ public class Jugador extends Actor implements InputProcessor{
     private Texture derecha;
     private Texture texDisparo;
 
-    private int vidas; // vida
+    public int vidas; // vida
     public float timeSeconds = 0f;
     public float period = 0.025f;
     private boolean dispara;
@@ -186,6 +186,14 @@ public class Jugador extends Actor implements InputProcessor{
     public boolean hitGun(Arma arma){
         rectangulo = sprite.getBoundingRectangle();
         return rectangulo.overlaps(arma.arma.getBoundingRectangle());
+    }
+
+    public boolean hitMonster(Enemigo ene){
+        return sprite.getBoundingRectangle().overlaps(ene.sprite.getBoundingRectangle());
+    }
+
+    public boolean hitBullet(Sprite ataque){
+        return sprite.getBoundingRectangle().overlaps(ataque.getBoundingRectangle());
     }
 
     @Override

@@ -11,11 +11,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Enemigo.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Enemigo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo2.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario2.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,34 +76,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="539">
-      <file leaf-file-name="Arma.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Arma.java">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+            <state relative-caret-position="284">
+              <caret line="89" column="16" lean-forward="false" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
-                <element signature="e#693#694#0" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-                <element signature="e#821#822#0" expanded="true" />
+                <element signature="e#4398#4399#0" expanded="true" />
+                <element signature="e#4429#4430#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pistola.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Pistola.java">
+      <file leaf-file-name="Creditos.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Creditos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#830#831#0" expanded="true" />
-                <element signature="e#866#867#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1335">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,13 +111,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Escenario.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java">
+      <file leaf-file-name="EndScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/EndScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="107" column="8" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="113" selection-end-column="24" />
+            <state relative-caret-position="240">
+              <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1254#1255#0" expanded="true" />
+                <element signature="e#1301#1302#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,12 +127,12 @@
       <file leaf-file-name="Jugador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+            <state relative-caret-position="373">
+              <caret line="195" column="85" lean-forward="false" selection-start-line="195" selection-start-column="85" selection-end-line="195" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7188#7189#0" expanded="true" />
-                <element signature="e#7246#7247#0" expanded="true" />
+                <element signature="e#7466#7467#0" expanded="true" />
+                <element signature="e#7524#7525#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,8 +155,8 @@
       <file leaf-file-name="Monstruo1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="90">
+              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,11 +164,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Monstruo2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Monstruo2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="255">
+              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,11 +188,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Boss.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Boss.java">
+      <file leaf-file-name="Escenario.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="99" column="42" lean-forward="false" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -3676,18 +3668,19 @@
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/CygnusX1.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Portada.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Creditos.java" />
-        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Nivel.java" />
-        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Boss.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Pistola.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Metralleta.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Arma.java" />
-        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Enemigo.java" />
-        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario2.java" />
+        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java" />
+        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java" />
         <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo2.java" />
+        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java" />
+        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/EndScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java" />
       </list>
     </option>
   </component>
@@ -3839,6 +3832,9 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.cygnusx1.game.Screens" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Cygnus X-1\core\assets" />
     </key>
@@ -4228,25 +4224,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/CygnusX1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#277#278#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7188#7189#0" expanded="true" />
-            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7466#7467#0" expanded="true" />
+            <element signature="e#7524#7525#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4475,25 +4460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Creditos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1665">
-          <caret line="135" column="24" lean-forward="false" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
-          <folding>
-            <element signature="e#4424#4425#0" expanded="false" />
-            <element signature="e#4455#4456#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Nivel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -4542,38 +4508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Metralleta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7188#7189#0" expanded="true" />
-            <element signature="e#7246#7247#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="107" column="8" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="113" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Enemigo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -4596,22 +4530,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="373">
+          <caret line="195" column="85" lean-forward="false" selection-start-line="195" selection-start-column="85" selection-end-line="195" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7466#7467#0" expanded="true" />
+            <element signature="e#7524#7525#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Monstruo1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Escenario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="99" column="42" lean-forward="false" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Metralleta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Creditos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/EndScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding>
+            <element signature="e#1254#1255#0" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/cygnusx1/game/Screens/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="89" column="16" lean-forward="false" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+          <folding>
+            <element signature="e#4398#4399#0" expanded="true" />
+            <element signature="e#4429#4430#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -87,6 +87,16 @@ public class Escenario implements Screen{
             ene3.move();
         }
 
+        if(jug.hitMonster((Enemigo)ene1) || jug.hitMonster((Enemigo)ene3) || jug.hitMonster((Enemigo)(jefe))){
+            jug.vidas--;
+            jug.sprite.translate(-100, -100);
+        }
+
+        if(jug.hitBullet(ene1.ataque) || jug.hitBullet(ene1.ataque2) || jug.hitBullet(ene1.ataque3) || jug.hitBullet(ene1.ataque4)){
+            jug.vidas--;
+            jug.sprite.translate(-100, -100);
+        }
+
         ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
         jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
         ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
@@ -97,6 +107,11 @@ public class Escenario implements Screen{
         if(!metralleta.taked) {
             metralleta.draw((SpriteBatch) (mapRen.getBatch()));
         }
+
+        if(jug.vidas <= 0){
+            juego.setScreen(new EndScreen(juego, jug));
+        }
+
         jefe.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
         //System.out.println(jug.getX() + ", " + jug.getY());

@@ -13,9 +13,9 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 public class Monstruo2 extends Enemigo{
 
-    private final Sprite ataque2;
-    private final Sprite ataque3;
-    private final Sprite ataque4;
+    private Sprite ataque2;
+    private Sprite ataque3;
+    private Sprite ataque4;
 
     public Monstruo2(int x, int y) {
         lives = 30;

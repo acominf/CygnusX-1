@@ -87,7 +87,7 @@ public class Menu implements Screen{
         boton4.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //juego.setScreen(new Ay);
+
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){

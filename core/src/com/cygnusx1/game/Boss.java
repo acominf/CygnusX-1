@@ -13,24 +13,13 @@ public class Boss extends Enemigo{
     public Boss(int x, int y){
         lives = 150;
         sprite = new Sprite(new Texture(Gdx.files.internal("boss.png")));
+        sprite.setPosition(x, y);
         rectangle = sprite.getBoundingRectangle();
-
-        if(counter < 80){
-            sprite.translateX(5f);
-        }
-        else{
-            if(counter < 160){
-                sprite.translateX(-5f);
-            }
-            else{
-                counter = 0;
-            }
-        }
-        counter ++; sprite.setPosition(x, y);
     }
 
     @Override
     public void move(){
+
 
     }
 

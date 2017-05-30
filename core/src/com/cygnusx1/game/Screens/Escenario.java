@@ -19,31 +19,22 @@ import com.cygnusx1.game.*;
  */
 
 public class Escenario implements Screen{
+    private TiledMap map;
+    private Sound sound;
+    private OrthogonalTiledMapRenderer mapRen;
+    private OrthographicCamera camera;
+
     //private Stage stage;
     private CygnusX1 juego;
     private Jugador jug;
     private Pistola pistola;
     private Monstruo1 ene1;
     private Monstruo2 ene3;
+
     private Boss ene2;
 
-    private TiledMap map;
-    private Sound sound;
-    private OrthogonalTiledMapRenderer mapRen;
-    private OrthographicCamera camera;
-    public float period = 0.1f;
     public float timeSeconds = 0f;
-
-    private boolean colision = false;
-    private boolean colisionEne = false;
-    private boolean colisionEne2 = false;
-    private boolean colisionEne3 = false;
-
-    private Rectangle rjug;
-    private Rectangle rene1;
-    private Rectangle rpist;
-    private Rectangle rene2;
-    private Rectangle rene3;
+    public float period = 0.1f;
 
     public Escenario(CygnusX1 j){
         juego = j;
@@ -75,6 +66,15 @@ public class Escenario implements Screen{
         ene2.hit((SpriteBatch)(mapRen.getBatch()), pistola.bala, jug.getX(),jug.getY());
         ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola.bala, jug.getX(),jug.getY());
 
+
+
+        if(!ene2.alive){
+            System.out.println("Escenario 2");
+            juego.setScreen(new Escenario2(juego, jug));
+        }
+
+        System.out.println("Vida del jefe: " + ene2.lives);
+        ene2.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
 
         //mapRen.render(new int[] {1});
@@ -102,6 +102,10 @@ public class Escenario implements Screen{
         mapRen.dispose();
         map.dispose();
         sound.dispose();
+        ene1.sprite.getTexture().dispose();
+        ene2.sprite.getTexture().dispose();
+        ene3.sprite.getTexture().dispose();
+        sound.dispose();
     }
 
     @Override
@@ -120,7 +124,7 @@ public class Escenario implements Screen{
     }
 
     @Override
-    public void hide() {
-
+    public void hide(){
+        dispose();
     }
 }

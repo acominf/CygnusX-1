@@ -62,7 +62,7 @@ public class Monstruo1 extends Enemigo{
             }
         }
 
-        //System.out.println(counter + ", " + counter2);
+        ///System.out.println(counter + ", " + counter2);
         counter++;
     }
 

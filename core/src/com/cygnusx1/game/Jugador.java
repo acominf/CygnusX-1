@@ -14,8 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by andrey on 9/05/17.
  */
 public class Jugador extends Actor implements InputProcessor{
-    private Sprite sprite;
-    private TiledMapTileLayer mapa;
+    public Sprite sprite;
+    public TiledMapTileLayer mapa;
 
     private boolean keyDown; //flechas de movimiento
     private boolean keyUp;
@@ -93,11 +93,11 @@ public class Jugador extends Actor implements InputProcessor{
             dispara = false;
         }
 
-        if(cont != 0){
+        if(cont > 0){
             batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
             timeSeconds += Gdx.graphics.getRawDeltaTime();
         }
-        if(timeSeconds > period && cont != 0){
+        if(timeSeconds > period && cont > 0){
             timeSeconds -= period;
             if(cont > 0){
                 if(texDisparo == derecha){
@@ -179,6 +179,10 @@ public class Jugador extends Actor implements InputProcessor{
 
     public Rectangle rectangulo(){
         return sprite.getBoundingRectangle();
+    }
+
+    public void hit(){
+
     }
 
     @Override

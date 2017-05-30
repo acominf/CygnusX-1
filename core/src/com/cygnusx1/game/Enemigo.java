@@ -44,7 +44,9 @@ public abstract class Enemigo{
                 bala.setPosition(x, y);
             }
             else{
-                alive = false;
+                if(lives == 0){
+                    alive = false;
+                }
             }
         }
     }
@@ -52,6 +54,7 @@ public abstract class Enemigo{
     public boolean colisiona(Rectangle rec){
         rectangle = sprite.getBoundingRectangle();
         return rectangle.overlaps(rec);
+        //return rec.overlaps(rectangle); CHECA ESTO :vvvvvvvvvvvvvvvvvvvvvvvvvv
     }
 
     public abstract void move();

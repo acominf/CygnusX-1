@@ -38,8 +38,11 @@ Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez má
 
 ### Imágenes del juego
 ![Inicio del juego](Imagenes/Imagen 31.png)
+
 ![Arma encontrada en el suelo](Imagenes/Imagen 31.png)
+
 ![Enemigos y sus ataques](Imagenes/Imagen 31.png)
+
 ![Nivel 2](Imagenes/Imagen 31.png)
 
 ### Autor(es)

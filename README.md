@@ -37,13 +37,13 @@ Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez má
 ![Diagrama de clases](Imagenes/DiagramaClases.png)
 
 ### Imágenes del juego
-![Inicio del juego](Imagenes/Imagen 031.png)
+![Inicio del juego](Imagenes/Imagen031.png)
 
-![Arma encontrada en el suelo](Imagenes/Imagen 032.png)
+![Arma encontrada en el suelo](Imagenes/Imagen032.png)
 
-![Enemigos y sus ataques](Imagenes/Imagen 033.png)
+![Enemigos y sus ataques](Imagenes/Imagen033.png)
 
-![Nivel 2](Imagenes/Imagen 034.png)
+![Nivel 2](Imagenes/Imagen034.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:

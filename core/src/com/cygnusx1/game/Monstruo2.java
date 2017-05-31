@@ -12,11 +12,6 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
  */
 
 public class Monstruo2 extends Enemigo{
-
-    private Sprite ataque2;
-    private Sprite ataque3;
-    private Sprite ataque4;
-
     public Monstruo2(int x, int y) {
         lives = 30;
         sprite = new Sprite(new TextureRegion(new Texture(Gdx.files.internal("enemigos.png")), 110, 0, 60, 100));

@@ -14,7 +14,6 @@ public class Metralleta extends Arma{
         balas = clip;
         velocidad = 20;
         damage = 2;
-        taked = false;
         arma = new Sprite(new TextureRegion(new Texture(Gdx.files.internal("armas.png")), 370, 250, 100, 100));
         bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         recArma = arma.getBoundingRectangle();

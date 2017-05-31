@@ -1,11 +1,7 @@
 package com.cygnusx1.game;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
@@ -15,9 +11,11 @@ import com.badlogic.gdx.math.Rectangle;
 public abstract class Enemigo{
     public Sprite sprite;
     public Sprite ataque;
+    public Sprite ataque2;
+    public Sprite ataque3;
+    public Sprite ataque4;
     public Rectangle rectangle;
 
-    public boolean colision = false;
     public boolean alive = true;
     public int counter = 0;
     public int counter2 = 0;
@@ -34,15 +32,15 @@ public abstract class Enemigo{
         return sprite.getY();
     }
 
-    public void hit(SpriteBatch batch, Arma gun, float x, float y, Jugador jug){
-        if(!colisiona(gun.bala.getBoundingRectangle()) && alive && lives > 0){
+    public void hit(SpriteBatch batch, Arma gun, float x, float y){
+        if(!colisiona(gun.rectanguloBala()) && alive && lives > 0){
             draw(batch);
         }
         else{
             if(lives > 0){
-                lives -= gun.damage;
+                lives -= gun.getDamage();
                 //jug.cont = 0;
-                gun.bala.setPosition(x, y);
+                gun.reposicionaBala(x, y);
             }
             else{
                 if(lives <= 0){
@@ -61,4 +59,8 @@ public abstract class Enemigo{
     public abstract void move();
 
     public abstract void draw(SpriteBatch batch);
+
+    public boolean isAlive(){
+        return alive;
+    }
 }

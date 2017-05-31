@@ -45,7 +45,7 @@ public class Escenario2 implements Screen{
         camera = new OrthographicCamera(Gdx.graphics.getWidth()/1.5f, Gdx.graphics.getHeight()/1.5f);
         sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
         sound.play();
-        jug.sprite.setPosition(128, 128);
+        jug.inicializa();
         jug.mapa = (TiledMapTileLayer)map.getLayers().get(0);
 
         //jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
@@ -77,7 +77,7 @@ public class Escenario2 implements Screen{
         if(jug.hitGun(metralleta)){
             System.out.println("Junto a arma");
             pistola = metralleta;
-            metralleta.taked = true;
+            metralleta.take();
         }
 
         timeSeconds += Gdx.graphics.getRawDeltaTime();
@@ -87,14 +87,14 @@ public class Escenario2 implements Screen{
             e2.move();
         }
 
-        e1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
-        e2.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
-        jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY(), jug);
+        e1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY()); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
+        e2.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
+        jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(),jug.getY());
 
-        if(!jefe.alive){
+        if(!jefe.isAlive()){
             juego.setScreen(new Menu(juego));
         }
-        if(!metralleta.taked) {
+        if(!metralleta.isTaked()) {
             metralleta.draw((SpriteBatch) (mapRen.getBatch()));
         }
         jefe.draw((SpriteBatch)(mapRen.getBatch()));

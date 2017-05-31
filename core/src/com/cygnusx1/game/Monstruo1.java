@@ -14,11 +14,6 @@ import com.badlogic.gdx.math.Rectangle;
  */
 
 public class Monstruo1 extends Enemigo{
-
-    public Sprite ataque2;
-    public Sprite ataque3;
-    public Sprite ataque4;
-
     public Monstruo1(int x, int y){
 
         lives = 20;

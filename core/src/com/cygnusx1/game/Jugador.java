@@ -14,16 +14,16 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by andrey on 9/05/17.
  */
 public class Jugador extends Actor implements InputProcessor{
-    public Sprite sprite;
+    private Sprite sprite;
     private Rectangle rectangulo;
     public TiledMapTileLayer mapa;
 
-    private boolean keyDown; //flechas de movimiento
-    private boolean keyUp;
-    private boolean keyLeft;
     private boolean keyRight;
-    private Texture arriba;
+    private boolean keyLeft;
+    private boolean keyUp;
+    private boolean keyDown;
 
+    private Texture arriba;
     private Texture abajo;
     private Texture izquierda;
     private Texture derecha;
@@ -50,7 +50,6 @@ public class Jugador extends Actor implements InputProcessor{
     }
 
     public void draw(final SpriteBatch batch, Arma pistola){  //metodo
-        //Sprite bala = new Sprite(new Texture(Gdx.files.internal("bullet.png")));
         float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
         boolean colisionDown;
 
@@ -82,37 +81,32 @@ public class Jugador extends Actor implements InputProcessor{
             if(colisionDown)
                 sprite.translateX(-5f);
         }
-        /* System.out.println(sprite.getX() + ", " + sprite.getY()); */
         if(dispara){
             cont = 30;
             texDisparo = sprite.getTexture();
-            pistola.balas--;
-            //pistola.bala.setTexture(new Texture(Gdx.files.internal("bullet.png")));
-            //pistola.relocaliza(sprite.getX(), sprite.getY());
-            pistola.bala.setPosition(sprite.getX(), sprite.getY());
-            //System.out.println("Has disparado");
-            //System.out.println(pistola.bala.getX() + ", " + pistola.bala.getY());
+            pistola.shoot();
+            pistola.getSprite().setPosition(sprite.getX(), sprite.getY());
             dispara = false;
         }
 
         if(cont > 0){
-            batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
+            batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
             timeSeconds += Gdx.graphics.getRawDeltaTime();
         }
         if(timeSeconds > period && cont > 0){
             timeSeconds -= period;
             if(cont > 0){
                 if(texDisparo == derecha){
-                    pistola.bala.translateX(pistola.velocidad);
+                    pistola.getSprite().translateX(pistola.getVelocity());
                 } else {
                     if (texDisparo == izquierda) {
-                        pistola.bala.translateX(-pistola.velocidad);
+                        pistola.getSprite().translateX(-pistola.getVelocity());
                     } else {
                         if (texDisparo == arriba) {
-                            pistola.bala.translateY(pistola.velocidad);
+                            pistola.getSprite().translateY(pistola.getVelocity());
                         } else {
                             if (texDisparo == abajo) {
-                                pistola.bala.translateY(-pistola.velocidad);
+                                pistola.getSprite().translateY(-pistola.getVelocity());
                             }
                         }
                     }
@@ -121,8 +115,7 @@ public class Jugador extends Actor implements InputProcessor{
             }
         }
         System.out.println(cont);
-        batch.draw(pistola.bala, pistola.bala.getX(), pistola.bala.getY());
-        //pistola.draw(batch, sprite.getX(), sprite.getY());
+        batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 
@@ -226,7 +219,19 @@ public class Jugador extends Actor implements InputProcessor{
         return false;
     }
 
-    public void rectangle(){
-        rectangulo = sprite.getBoundingRectangle();
+    public int getLives(){
+        return vidas;
+    }
+
+    public void loseLife(){
+        vidas--;
+    }
+
+    public void moveSprite(){
+        sprite.translate(-100, -100);
+    }
+
+    public void inicializa(){
+        sprite.setPosition(128, 128);
     }
 }

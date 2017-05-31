@@ -98,10 +98,7 @@ public class Creditos implements Screen {
             C8.draw(batch);
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY) && timer8 > 0){
 
-            j.setScreen(new Menu(j));
-        }
         batch.end();
 
 

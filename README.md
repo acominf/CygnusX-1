@@ -36,6 +36,12 @@ Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez má
 ### Diagrama de clases
 ![Diagrama de clases](Imagenes/DiagramaClases.png)
 
+### Imágenes del juego
+![Inicio del juego](Imagenes/Imagen 31.png)
+![Arma encontrada en el suelo](Imagenes/Imagen 31.png)
+![Enemigos y sus ataques](Imagenes/Imagen 31.png)
+![Nivel 2](Imagenes/Imagen 31.png)
+
 ### Autor(es)
 El autor(es) del proyecto son:
 - Gonzalez Patiño Oscar Armando (@Morcado)
@@ -46,9 +52,3 @@ El autor(es) del proyecto son:
 
 ### Semestre
 - 2016-2017/II
-
-### Markdown
-El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
-
-### Temas de Jekyll
-El estilo y presentación de esta página utiliza el tema de Jekyll seleccionado en la configuración del repositorio. El nombre de este tema está almacenado en el archivo de configuración `_config.yml`. Para más información acerca de los temas de Jekyll soportados por GitHub [haz click en este enlace](https://pages.github.com/themes/).

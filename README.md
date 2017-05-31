@@ -36,12 +36,16 @@ Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez má
 
 ### Imágenes del juego
 ![Inicio del juego](Imagenes/Imagen031.png)
+El personaje inicia con 5 vidas y va recorriendo un mundo lleno de obstaculos y enemigos y armas que hacen variada su existencia
 
 ![Arma encontrada en el suelo](Imagenes/Imagen032.png)
+Las armas encontradas proveen de diferentes ataques y velocidad
 
 ![Enemigos y sus ataques](Imagenes/Imagen033.png)
+Los enemigos pueden moverse y tienen diferentes ataques
 
 ![Nivel 2](Imagenes/Imagen034.png)
+Cada niveles diferente al anterior, contienen otras cosas
 
 ### Autor(es)
 El autor(es) del proyecto son:

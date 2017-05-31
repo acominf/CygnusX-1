@@ -4,37 +4,35 @@ El objetivo del juego es entretener al usuario y hacer que juegue un poco del ju
 ### Descripción del juego/aplicación
 Es un juego tipo RPG (Role Playing Game), donde el soldado de clave X-1 continúa su aventura después de haber derrotado a su clon creado por la raza enemiga. 
  
-Ahora el soldado que se encontraba en la nave enemiga, deberá dirigirse mediante complicadas batallas al planeta enemigo para poder acabar con ellos.
+Ahora el soldado que se encontraba en la nave enemiga, deberá dirigirse mediante el mundo lleno de enemigos para matar a los jefes finales de cada uno
 
-El juego tendrá dos modos diferentes en que se juega, por una parte está el mundo abierto donde controlamos desde una vista aérea a X-1 mientras lo guiamos hasta sus destinos mientras intentamos escapar de los enemigos, pero si un enemigo llega a tocar a X-1 la visualización del juego cambia ya que ahora entramos a un modo combate y podemos pelear mediante turnos con los enemigos, contando con un apartado de pelea donde escogeremos de qué manera atacar, otro apartado sería el de opciones que nos permite reparar si X-1 se encuentra dañado de su armadura.
+El juego tendrá dos niveles en que se juega, por una parte está el mundo abierto donde controlamos desde una vista aérea a X-1 mientras lo guiamos hasta sus destinos, habrá monstruos que atacan e intentarán matar al jugador, pero el jugador cuenta con varias armas en el mundo que le permitirán tener diferentes ataques y ser más poderoso
 
 Cada combate nos generara experiencia lo cual hará que X-1 se haga cada vez más fuerte.
 
-
-
 ### Clases principales y sus características
-1. Juego
-* Nos permite seleccionar la dificulad del juego.
-* Continuar la partida del juego.
-* Seleccionar un elemento del menu,
+1. Jugador
+* Nos permite movernos a traves del mundo
+* Ataca con distintas armas que se pueden encontrar
+* Tiene 5 vidas
 
-2. Mundo
+2. Nivel
 * Nos muestra el escenario del juego desde una vista aerea.
 * Moveremos al personaje desde aqui.
+* El escenario contiene paredes, armas y enemigos
 
-3. Combate
-* Sucede el evento de una pelea contra un enemigo.
-* Se manejara por turnos.
-* La batalla acaba cuando el primero pierda.
+3. Enemigo
+* Puede tener distintos ataques
+* Se mueve indepentiendemente
+* Tiene mas vida que el jugador
 
-4. Jugador
-* Será controlado por el usuario.
-* Nos mostrara dos aspectos fisicos desde la vista del mundo y la del combate.
-* Contara con diferentes antributos para sus ataques.
+4. CygnusX1
+* Es la clase principal del juego
+* Permite que se llamen las clases siguientes
 
 
 ### Diagrama de clases
-![Diagrama de clases](Imagenes/DiagramaClases.png)
+![Diagrama de clases](Imagenes/diagrama.png)
 
 ### Imágenes del juego
 ![Inicio del juego](Imagenes/Imagen031.png)

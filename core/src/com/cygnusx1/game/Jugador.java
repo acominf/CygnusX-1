@@ -84,7 +84,7 @@ public class Jugador extends Actor implements InputProcessor{
                 sprite.translateX(-5f);
         }
         if(dispara){
-            cont = 30;
+            cont = 60;
             pistola.shoot();
             pistola.reposicionaBala(x, y);
             dispara = false;

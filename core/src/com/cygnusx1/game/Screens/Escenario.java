@@ -26,8 +26,8 @@ public class Escenario extends Nivel implements Screen{
     private Boss jefe;
     private Metralleta metralleta;
 
-    public Escenario(CygnusX1 j){
-        juego = j;
+    public Escenario(CygnusX1 juego){
+        this.juego = juego;
         tabla = new Table();
         batch = new SpriteBatch();
     }
@@ -91,11 +91,12 @@ public class Escenario extends Nivel implements Screen{
             jug.moveSprite();
         }
 
-        if(jug.hitBullet(ene1.getAtaque()) || jug.hitBullet(ene1.getAtaque2()) || jug.hitBullet(ene1.getAtaque3()) || jug.hitBullet(ene1.getAtaque4())){
-            jug.loseLife();
-            jug.moveSprite();
+        if(ene1.isAlive()) {
+            if (jug.hitBullet(ene1.getAtaque()) || jug.hitBullet(ene1.getAtaque2()) || jug.hitBullet(ene1.getAtaque3()) || jug.hitBullet(ene1.getAtaque4())) {
+                jug.loseLife();
+                jug.moveSprite();
+            }
         }
-
         ene1.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(), jug.getY()); //detecta si un enemigo es golpeado, le quita una vida al enemigo y aumenta puntos
         jefe.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(), jug.getY());
         ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(), jug.getY());

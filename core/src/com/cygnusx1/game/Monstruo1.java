@@ -78,4 +78,20 @@ public class Monstruo1 extends Enemigo{
         ataque3.getTexture().dispose();
         ataque4.getTexture().dispose();
     }
+
+    public Sprite getAtaque() {
+        return ataque;
+    }
+
+    public Sprite getAtaque2() {
+        return ataque2;
+    }
+
+    public Sprite getAtaque3() {
+        return ataque3;
+    }
+
+    public Sprite getAtaque4() {
+        return ataque4;
+    }
 }

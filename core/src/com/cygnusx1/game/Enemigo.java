@@ -9,17 +9,17 @@ import com.badlogic.gdx.math.Rectangle;
  */
 
 public abstract class Enemigo{
-    public Sprite sprite;
-    public Sprite ataque;
-    public Sprite ataque2;
-    public Sprite ataque3;
-    public Sprite ataque4;
-    public Rectangle rectangle;
+    protected Sprite sprite;
+    protected Sprite ataque;
+    protected Sprite ataque2;
+    protected Sprite ataque3;
+    protected Sprite ataque4;
+    protected Rectangle rectangle;
 
-    public boolean alive = true;
-    public int counter = 0;
-    public int counter2 = 0;
-    public int lives;
+    protected boolean alive = true;
+    protected int counter = 0;
+    protected int counter2 = 0;
+    protected int lives;
 
     public Enemigo(){
     }
@@ -65,4 +65,8 @@ public abstract class Enemigo{
     }
 
     public abstract void dispose();
+
+    public Rectangle getRectangle(){
+        return sprite.getBoundingRectangle();
+    }
 }

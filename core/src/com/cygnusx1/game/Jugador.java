@@ -188,7 +188,7 @@ public class Jugador extends Actor implements InputProcessor{
     }
 
     public boolean hitMonster(Enemigo ene){
-        return sprite.getBoundingRectangle().overlaps(ene.sprite.getBoundingRectangle());
+        return sprite.getBoundingRectangle().overlaps(ene.getRectangle());
     }
 
     public boolean hitBullet(Sprite ataque){

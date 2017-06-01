@@ -89,7 +89,7 @@ public class Escenario extends Nivel implements Screen{
             jug.moveSprite();
         }
 
-        if(jug.hitBullet(ene1.ataque) || jug.hitBullet(ene1.ataque2) || jug.hitBullet(ene1.ataque3) || jug.hitBullet(ene1.ataque4)){
+        if(jug.hitBullet(ene1.getAtaque()) || jug.hitBullet(ene1.getAtaque2()) || jug.hitBullet(ene1.getAtaque3()) || jug.hitBullet(ene1.getAtaque4())){
             jug.loseLife();
             jug.moveSprite();
         }

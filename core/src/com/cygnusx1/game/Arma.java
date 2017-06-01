@@ -68,10 +68,7 @@ public abstract class Arma {
         return velocidad;
     }
 
-    public void dispose(){
-        bala.getTexture().dispose();
-        arma.getTexture().dispose();
-    }
+    public abstract void dispose();
 
     public abstract void mueveBalaX();
     public abstract void mueveBalamX();

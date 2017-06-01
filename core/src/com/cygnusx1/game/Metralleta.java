@@ -28,6 +28,12 @@ public class Metralleta extends Arma {
     }
 
     @Override
+    public void dispose() {
+        bala.getTexture().dispose();
+        arma.getTexture().dispose();
+    }
+
+    @Override
     public void mueveBalaX(){
         bala.translateX(velocidad);
     }

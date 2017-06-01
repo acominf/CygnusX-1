@@ -26,6 +26,11 @@ public class Pistola extends Arma {
     }
 
     @Override
+    public void dispose() {
+        bala.getTexture().dispose();
+    }
+
+    @Override
     public void mueveBalaX(){
         bala.translateX(velocidad);
     }

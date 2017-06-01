@@ -63,4 +63,6 @@ public abstract class Enemigo{
     public boolean isAlive(){
         return alive;
     }
+
+    public abstract void dispose();
 }

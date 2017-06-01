@@ -4,7 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -20,11 +23,33 @@ import com.cygnusx1.game.Jugador;
  */
 public class Menu implements Screen{
     private Stage stage;
+    private SpriteBatch batch;
+    private Sprite menu;
     private CygnusX1 juego;
     private Label outputLabel;
+    private Jugador jug;
+    private TiledMap map;
 
-    public Menu(CygnusX1 j){
-        juego = j;
+    public Menu(CygnusX1 juego){
+        this.juego = juego;
+    }
+
+    @Override
+    public void render(float delta){
+        Gdx.gl.glClearColor(0, 0, 0, 0 );
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        stage.act(Gdx.graphics.getDeltaTime());
+        batch.begin();
+        menu.draw(batch);
+        batch.end();
+        stage.draw();
+    }
+
+    @Override
+    public void show(){
+        batch = new SpriteBatch();
+        menu = new Sprite(new Texture(Gdx.files.internal("menu.png")));
         stage = new Stage(new ScreenViewport());
         ImageButton boton1 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("playButton.png")))));
         ImageButton boton2 = new ImageButton(new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("exitButton.png")))));
@@ -36,8 +61,6 @@ public class Menu implements Screen{
         boton1.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //  juego.dispose()
-                juego.dispose();
                 juego.setScreen(new Escenario(juego));
             }
 
@@ -52,9 +75,7 @@ public class Menu implements Screen{
         boton2.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-200);
         boton2.addListener(new InputListener(){
             @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //  juego.dispose();
-                juego.dispose();
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button){
                 Gdx.app.exit();
             }
 
@@ -70,8 +91,6 @@ public class Menu implements Screen{
         boton3.addListener(new InputListener(){
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //creditos
-                juego.dispose();
                 juego.setScreen(new Creditos(juego));
             }
 
@@ -86,7 +105,8 @@ public class Menu implements Screen{
         boton4.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2-100);
         boton4.addListener(new InputListener(){
             @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button){
+                juego.setScreen(new Ayuda(juego));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
@@ -95,19 +115,6 @@ public class Menu implements Screen{
 
         });
         stage.addActor(boton4);
-    }
-
-    @Override
-    public void render(float delta){
-        Gdx.gl.glClearColor(0, 0, 0, 0 );
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
-    }
-
-    @Override
-    public void show(){
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -127,11 +134,14 @@ public class Menu implements Screen{
     }
 
     @Override
-    public void hide() {
+    public void hide(){
+        this.dispose();
     }
 
     @Override
     public void dispose(){
         stage.dispose();
+        batch.dispose();
+        menu.getTexture().dispose();
     }
 }

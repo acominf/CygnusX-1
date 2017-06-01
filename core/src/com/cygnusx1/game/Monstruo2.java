@@ -65,4 +65,13 @@ public class Monstruo2 extends Enemigo{
         batch.draw(ataque3, ataque3.getX(), ataque3.getY());
         batch.draw(ataque4, ataque4.getX(), ataque4.getY());
     }
+
+    @Override
+    public void dispose(){
+        sprite.getTexture().dispose();
+        ataque.getTexture().dispose();
+        ataque2.getTexture().dispose();
+        ataque3.getTexture().dispose();
+        ataque4.getTexture().dispose();
+    }
 }

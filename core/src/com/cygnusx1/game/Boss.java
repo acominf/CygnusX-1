@@ -27,4 +27,9 @@ public class Boss extends Enemigo{
     public void draw(SpriteBatch batch){
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
+
+    @Override
+    public void dispose() {
+        sprite.getTexture().dispose();
+    }
 }

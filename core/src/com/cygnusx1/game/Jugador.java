@@ -29,15 +29,16 @@ public class Jugador extends Actor implements InputProcessor{
     private Texture derecha;
     private Texture texDisparo;
 
-    public int vidas; // vida
-    public float timeSeconds = 0f;
-    public float period = 0.025f;
+    private int vidas; // vida
+    private float timeSeconds = 0f;
+    private float period = 0.025f;
     private boolean dispara;
-    public int cont = 0;
+    private int cont = 0;
+    private int direction = 1;
 
-    public Jugador(int x, int y, TiledMapTileLayer m){
+    public Jugador(int x, int y, TiledMapTileLayer m, int vidas){
         mapa = m;
-        vidas = 5;
+        this.vidas = vidas;
         arriba = new Texture(Gdx.files.internal("arriba.png"));
         abajo = new Texture(Gdx.files.internal("abajo.png"));
         derecha = new Texture(Gdx.files.internal("derecha.png"));
@@ -51,62 +52,63 @@ public class Jugador extends Actor implements InputProcessor{
 
     public void draw(final SpriteBatch batch, Arma pistola){  //metodo
         float tileWidth = mapa.getTileWidth(), tileHeight = mapa.getTileHeight();
+        float x = sprite.getX(), y = sprite.getY();
         boolean colisionDown;
 
         if(keyDown && sprite.getY() > 0){ //abajo
             sprite.translateY(-5f);
             sprite.setTexture(abajo);
-            colisionDown = mapa.getCell((int)((sprite.getX()/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            colisionDown = mapa.getCell((int)((x/tileWidth+1)), (int)(((y)/tileHeight))).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
                 sprite.translateY(5f);
         }
         if(keyUp && sprite.getY() < 32*98){ //arriba //numero de celdas -2 * tamaño de la celda
             sprite.translateY(5f);
             sprite.setTexture(arriba);
-            colisionDown = mapa.getCell((int)((sprite.getX()/tileWidth+1)), (int)(((sprite.getY()+sprite.getHeight()/1.3)/tileHeight))).getTile().getProperties().containsKey("Pared");
+            colisionDown = mapa.getCell((int)((x/tileWidth+1)), (int)(((y+sprite.getHeight()/1.3)/tileHeight))).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
                 sprite.translateY(-5f);
         }
         if(keyLeft && sprite.getX() > 0){ //izquierda
             sprite.translateX(-5f);
             sprite.setTexture(izquierda);
-            colisionDown = mapa.getCell((int)(((sprite.getX()-sprite.getWidth()/3)/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            colisionDown = mapa.getCell((int)(((x-sprite.getWidth()/3)/tileWidth+1)), (int)(((y)/tileHeight))).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
                 sprite.translateX(5f);
         }
         if(keyRight && sprite.getX() < 32*98){ //derecha
             sprite.translateX(5f);
             sprite.setTexture(derecha);
-            colisionDown = mapa.getCell((int)(((sprite.getX()+sprite.getWidth()/3)/tileWidth+1)), (int)(((sprite.getY())/tileHeight))).getTile().getProperties().containsKey("Pared");
+            colisionDown = mapa.getCell((int)(((x+sprite.getWidth()/3)/tileWidth+1)), (int)(y/tileHeight)).getTile().getProperties().containsKey("Pared");
             if(colisionDown)
                 sprite.translateX(-5f);
         }
         if(dispara){
             cont = 30;
-            texDisparo = sprite.getTexture();
             pistola.shoot();
-            pistola.getSprite().setPosition(sprite.getX(), sprite.getY());
+            pistola.reposicionaBala(x, y);
             dispara = false;
         }
 
         if(cont > 0){
-            batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
+            //pistola.drawBala(batch);
+            //batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
             timeSeconds += Gdx.graphics.getRawDeltaTime();
         }
         if(timeSeconds > period && cont > 0){
             timeSeconds -= period;
             if(cont > 0){
-                if(texDisparo == derecha){
-                    pistola.getSprite().translateX(pistola.getVelocity());
+                if(direction == 3){
+                    pistola.mueveBalaX();
                 } else {
-                    if (texDisparo == izquierda) {
-                        pistola.getSprite().translateX(-pistola.getVelocity());
+                    if (direction == 4) {
+                        pistola.mueveBalamX();
                     } else {
-                        if (texDisparo == arriba) {
-                            pistola.getSprite().translateY(pistola.getVelocity());
+                        if (direction == 2) {
+                            pistola.mueveBalaY();
                         } else {
-                            if (texDisparo == abajo) {
-                                pistola.getSprite().translateY(-pistola.getVelocity());
+                            if (direction == 1) {
+                                pistola.mueveBalamY();
                             }
                         }
                     }
@@ -114,8 +116,8 @@ public class Jugador extends Actor implements InputProcessor{
                 cont--;
             }
         }
-        System.out.println(cont);
-        batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
+        pistola.drawBala(batch);
+        //batch.draw(pistola.getSprite(), pistola.getSprite().getX(), pistola.getSprite().getY());
         batch.draw(sprite, sprite.getX(), sprite.getY());
     }
 
@@ -123,15 +125,19 @@ public class Jugador extends Actor implements InputProcessor{
     public boolean keyDown(int keycode){
         switch(keycode){
             case 20: //down
+                direction = 1;
                 keyDown = true;
                 break;
             case 19: //up
+                direction = 2;
                 keyUp = true;
                 break;
             case 22: //right
+                direction = 3;
                 keyRight = true;
                 break;
             case 21: //left
+                direction = 4;
                 keyLeft = true;
                 break;
             case 62:
@@ -178,7 +184,7 @@ public class Jugador extends Actor implements InputProcessor{
 
     public boolean hitGun(Arma arma){
         rectangulo = sprite.getBoundingRectangle();
-        return rectangulo.overlaps(arma.arma.getBoundingRectangle());
+        return rectangulo.overlaps(arma.rectanguloArma());
     }
 
     public boolean hitMonster(Enemigo ene){
@@ -233,5 +239,13 @@ public class Jugador extends Actor implements InputProcessor{
 
     public void inicializa(){
         sprite.setPosition(128, 128);
+    }
+
+    public void dispose(){
+        arriba.dispose();
+        abajo.dispose();
+        derecha.dispose();
+        izquierda.dispose();
+        sprite.getTexture().dispose();
     }
 }

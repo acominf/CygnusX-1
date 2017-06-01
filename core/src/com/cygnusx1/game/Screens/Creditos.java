@@ -21,8 +21,8 @@ public class Creditos implements Screen {
     private Sprite C6;
     private Sprite C7;
     private Sprite C8;
-
     private SpriteBatch batch;
+
     public int timer0= 50;
     public int timer1= 50;
     public int timer2= 50;
@@ -33,12 +33,14 @@ public class Creditos implements Screen {
     public int timer7= 50;
     public int timer8= 50;
 
-    private CygnusX1 j;
+    private CygnusX1 juego;
 
     public Creditos(CygnusX1 juego){
-        j = juego;
+        this.juego = juego;
+    }
+    @Override
+    public void show() {
         batch = new SpriteBatch();
-
         C0 = new Sprite(new Texture(Gdx.files.internal("Creditos/00.png")));
         C1 = new Sprite(new Texture(Gdx.files.internal("Creditos/01.png")));
         C2 = new Sprite(new Texture(Gdx.files.internal("Creditos/02.png")));
@@ -48,11 +50,6 @@ public class Creditos implements Screen {
         C6 = new Sprite(new Texture(Gdx.files.internal("Creditos/06.png")));
         C7 = new Sprite(new Texture(Gdx.files.internal("Creditos/07.png")));
         C8 = new Sprite(new Texture(Gdx.files.internal("Creditos/08.png")));
-
-    }
-    @Override
-    public void show() {
-
     }
 
     @Override
@@ -66,7 +63,6 @@ public class Creditos implements Screen {
             timer1--;
             C1.draw(batch);
         }
-
         else if(timer2 > 0){
             timer2--;
             C2.draw(batch);
@@ -83,12 +79,10 @@ public class Creditos implements Screen {
             timer5--;
             C5.draw(batch);
         }
-
         else if(timer6 > 0){
             timer6--;
             C6.draw(batch);
         }
-
         else if(timer7 > 0){
             timer7--;
             C7.draw(batch);
@@ -97,11 +91,10 @@ public class Creditos implements Screen {
             timer8--;
             C8.draw(batch);
         }
-
-
         batch.end();
-
-
+        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+            juego.setScreen(new Menu(juego));
+        }
     }
 
     @Override
@@ -121,7 +114,13 @@ public class Creditos implements Screen {
 
     @Override
     public void hide() {
+        this.dispose();
+    }
+
+    @Override
+    public void dispose() {
         C0.getTexture().dispose();
+        C1.getTexture().dispose();
         C2.getTexture().dispose();
         C3.getTexture().dispose();
         C4.getTexture().dispose();
@@ -130,11 +129,5 @@ public class Creditos implements Screen {
         C7.getTexture().dispose();
         C8.getTexture().dispose();
         batch.dispose();
-
-    }
-
-    @Override
-    public void dispose() {
-
     }
 }

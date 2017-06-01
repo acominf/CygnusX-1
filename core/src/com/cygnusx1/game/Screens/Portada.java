@@ -17,26 +17,25 @@ public class Portada implements Screen{
     private CygnusX1 juego;
     private Sprite portada, portada2, portada3, libGdx;
     private SpriteBatch batch;
-    public int  timer = 100;
-    public int timer2 = 100;
-    public int timer3 = 100;
-    public int lib = 100;
+    private int timer = 100;
+    private int timer2 = 100;
+    private int lib = 100;
     private Sound sound;
 
 
-    public Portada(CygnusX1 j){
-        juego = j;
+    public Portada(CygnusX1 juego){
+        this.juego = juego;
+    }
+
+    @Override
+    public void show(){
+
         batch = new SpriteBatch();
         portada = new Sprite(new Texture(Gdx.files.internal("portada.png")));
         portada2 = new Sprite(new Texture(Gdx.files.internal("portada2.png")));
         portada3 = new Sprite(new Texture(Gdx.files.internal("portada3.png")));
         libGdx = new Sprite(new Texture(Gdx.files.internal("libGdx.png")));
         sound =  Gdx.audio.newSound(Gdx.files.internal("1920.mp3"));
-
-    }
-
-    @Override
-    public void show(){
         sound.play();
     }
 
@@ -90,8 +89,11 @@ public class Portada implements Screen{
 
     @Override
     public void dispose() {
-
-        batch.dispose();
+        libGdx.getTexture().dispose();
+        portada.getTexture().dispose();
+        portada2.getTexture().dispose();
+        portada3.getTexture().dispose();
         sound.dispose();
+        batch.dispose();
     }
 }

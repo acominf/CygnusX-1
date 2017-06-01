@@ -30,18 +30,20 @@ public class Escenario2 implements Screen{
     private Boss jefe;
     private Metralleta metralleta;
 
-    public float timeSeconds = 0f;
-    public float period = 0.1f;
+    private float timeSeconds = 0f;
+    private float period = 0.1f;
+    private int vidasAnteriores;
 
-    public Escenario2(CygnusX1 jueg, Jugador j) {
-        juego = jueg;
-        jug = j;
+    public Escenario2(CygnusX1 juego, int vidas) {
+        this.juego = juego;
+        vidasAnteriores = vidas;
     }
 
     @Override
     public void show(){
         map = new TmxMapLoader().load("map2.tmx");
         mapRen = new OrthogonalTiledMapRenderer(map);
+        jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)), vidasAnteriores);
         camera = new OrthographicCamera(Gdx.graphics.getWidth()/1.5f, Gdx.graphics.getHeight()/1.5f);
         sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
         sound.play();
@@ -95,7 +97,7 @@ public class Escenario2 implements Screen{
             juego.setScreen(new Menu(juego));
         }
         if(!metralleta.isTaked()) {
-            metralleta.draw((SpriteBatch) (mapRen.getBatch()));
+            metralleta.drawStart((SpriteBatch) (mapRen.getBatch()));
         }
         jefe.draw((SpriteBatch)(mapRen.getBatch()));
 
@@ -128,9 +130,12 @@ public class Escenario2 implements Screen{
         mapRen.dispose();
         map.dispose();
         sound.dispose();
-        e1.sprite.getTexture().dispose();
-        jefe.sprite.getTexture().dispose();
-        e2.sprite.getTexture().dispose();
+        e1.dispose();
+        jefe.dispose();
+        e2.dispose();
+        jug.dispose();
+        pistola.dispose();
+        metralleta.dispose();
         sound.dispose();
     }
 }

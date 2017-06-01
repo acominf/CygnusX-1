@@ -1,9 +1,7 @@
 package com.cygnusx1.game;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
@@ -24,17 +22,15 @@ public abstract class Arma {
 
     }
 
-    public void draw(SpriteBatch batch, float x, float y){
-        batch.draw(arma, x+30, y-30);
+    public void drawBala(SpriteBatch batch){
+        batch.draw(bala, bala.getX(), bala.getY());
     }
 
     public void recarga(){
         balas = clip;
     }
 
-    public void draw(SpriteBatch batch){
-        batch.draw(arma, arma.getX(), arma.getY());
-    }
+    public abstract void drawStart(SpriteBatch batch);
 
     public void take(){
         taked = true;
@@ -64,7 +60,21 @@ public abstract class Arma {
         return bala;
     }
 
+    public Rectangle rectanguloArma(){
+        return(arma.getBoundingRectangle());
+    }
+
     public float getVelocity(){
         return velocidad;
     }
+
+    public void dispose(){
+        bala.getTexture().dispose();
+        arma.getTexture().dispose();
+    }
+
+    public abstract void mueveBalaX();
+    public abstract void mueveBalamX();
+    public abstract void mueveBalaY();
+    public abstract void mueveBalamY();
 }

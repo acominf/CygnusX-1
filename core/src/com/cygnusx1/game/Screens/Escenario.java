@@ -3,12 +3,10 @@ package com.cygnusx1.game.Screens;
 import com.badlogic.gdx.Gdx;
 
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -42,7 +40,7 @@ public class Escenario extends Nivel implements Screen{
         sound = Gdx.audio.newSound(Gdx.files.internal("MF.mp3"));
         sound.play();
 
-        jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)));
+        jug = new Jugador(128, 128, (TiledMapTileLayer)(map.getLayers().get(0)), 5);
         ene1 = new Monstruo1(200, 700);
         jefe = new Boss(2950, 3000);
         ene3 = new Monstruo2(350, 1400);
@@ -101,10 +99,10 @@ public class Escenario extends Nivel implements Screen{
         ene3.hit((SpriteBatch)(mapRen.getBatch()), pistola, jug.getX(), jug.getY());
 
         if(!jefe.isAlive()){
-            juego.setScreen(new Escenario2(juego, jug));
+            juego.setScreen(new Escenario2(juego, jug.getLives()));
         }
         if(!metralleta.isTaked()) {
-            metralleta.draw((SpriteBatch) (mapRen.getBatch()));
+            metralleta.drawStart((SpriteBatch) (mapRen.getBatch()));
         }
 
         if(jug.getLives() <= 0){
@@ -123,10 +121,14 @@ public class Escenario extends Nivel implements Screen{
         mapRen.dispose();
         map.dispose();
         sound.dispose();
-        ene1.sprite.getTexture().dispose();
-        jefe.sprite.getTexture().dispose();
-        ene3.sprite.getTexture().dispose();
+        ene1.dispose();
+        jefe.dispose();
+        ene3.dispose();
+        pistola.dispose();
+        metralleta.dispose();
         sound.dispose();
+        batch.dispose();
+        jug.dispose();
     }
 
     @Override

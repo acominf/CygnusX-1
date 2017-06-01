@@ -3,12 +3,13 @@ package com.cygnusx1.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
  * Created by Oscar Patiño on 29/05/2017.
  */
-public class Metralleta extends Arma{
+public class Metralleta extends Arma {
     public Metralleta(float x, float y){
         clip = 300;
         balas = clip;
@@ -19,5 +20,30 @@ public class Metralleta extends Arma{
         recArma = arma.getBoundingRectangle();
         recBala = bala.getBoundingRectangle();
         arma.setPosition(x, y);
+    }
+
+    @Override
+    public void drawStart(SpriteBatch batch) {
+        batch.draw(arma, arma.getX(), arma.getY());
+    }
+
+    @Override
+    public void mueveBalaX(){
+        bala.translateX(velocidad);
+    }
+
+    @Override
+    public void mueveBalamX() {
+        bala.translateX(-velocidad);
+    }
+
+    @Override
+    public void mueveBalaY() {
+        bala.translateY(velocidad);
+    }
+
+    @Override
+    public void mueveBalamY() {
+        bala.translateY(-velocidad);
     }
 }

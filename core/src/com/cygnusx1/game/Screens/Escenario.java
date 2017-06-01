@@ -48,13 +48,15 @@ public class Escenario extends Nivel implements Screen{
         metralleta = new Metralleta(200, 500);
 
         Gdx.input.setInputProcessor(jug);
-        tabla.top();
+
+        /*tabla.top();
         tabla.setFillParent(true);
         texto = new Label("Vidas", new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE));
 
         tabla.add(texto).expandX().padTop(10);
         tabla.row();
         tabla.add(vida).expandX().padTop(10);
+        */
     }
 
     @Override
@@ -69,7 +71,7 @@ public class Escenario extends Nivel implements Screen{
         camera.position.x = jug.getX()+32;
         camera.position.y = jug.getY()+32;
         camera.update();
-        vida = new Label(String.format("%03d", jug.getLives()), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE));
+        //vida = new Label(String.format("%03d", jug.getLives()), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE));
 
         jug.draw((SpriteBatch)mapRen.getBatch(), pistola);
         if(jug.hitGun(metralleta)){
@@ -112,7 +114,7 @@ public class Escenario extends Nivel implements Screen{
         jefe.draw((SpriteBatch)(mapRen.getBatch()));
         mapRen.getBatch().end();
         batch.begin();
-        vida.draw(batch, 10);
+//        vida.draw(batch, 10);
         batch.end();
     }
 
